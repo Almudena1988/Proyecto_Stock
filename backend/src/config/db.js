@@ -1,7 +1,7 @@
 // Se importa la biblioteca Knex
 
 import knex from 'knex';
-import knexfile from "./knexfile"
+import knexfile from "./knexfile.ts"
 
 // Se escoge el entorno de configuración
 

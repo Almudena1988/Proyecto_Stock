@@ -3,15 +3,15 @@
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
-module.exports = {
+export default {
 
   development: {
     client: 'pg',
     connection: {
-      host: localhost ,
+      host: "localhost" ,
       database: 'my_db',
-      user: postgres,
-      password: 1234,
+      user: "postgres",
+      password: '1234',
       port: 5432
     },
     pool: {
