@@ -6,9 +6,25 @@
 module.exports = {
 
   development: {
-    client: 'sqlite3',
+    client: 'pg',
     connection: {
-      filename: './dev.sqlite3'
+      host: localhost ,
+      database: 'my_db',
+      user: postgres,
+      password: 1234,
+      port: 5432
+    },
+    pool: {
+      min: 2,
+      max: 10
+    },
+    migrations: {
+      tableName: 'knex_migrations',
+      directory: './migrations'
+    }, 
+    seeds:{
+      tableName: 'knex_seeds',
+      directory: './seeds'
     }
   },
 
@@ -16,7 +32,7 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'my_db',
-      user:     'username',
+      user: 'username',
       password: 'password'
     },
     pool: {
@@ -32,7 +48,7 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'my_db',
-      user:     'username',
+      user: 'username',
       password: 'password'
     },
     pool: {
