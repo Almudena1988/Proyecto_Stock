@@ -2,7 +2,7 @@
 
 
 import knex from 'knex';
-import knexfile from "./knexfile.js"
+import knexfile from "../../knexfile.js"
 
 // Se escoge el entorno de configuración
 
