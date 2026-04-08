@@ -20,11 +20,11 @@ export default {
     },
     migrations: {
       tableName: 'knex_migrations',
-      directory: './migrations'
+      directory: './src/db/migrations'
     }, 
     seeds:{
       tableName: 'knex_seeds',
-      directory: './seeds'
+      directory: './src/db/seeds'
     }
   },
 
