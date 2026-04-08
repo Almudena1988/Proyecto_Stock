@@ -8,8 +8,8 @@ export default {
   development: {
     client: 'pg',
     connection: {
-      host: "localhost" ,
-      database: 'my_db',
+      host: "172.17.0.3" ,
+      database: 'my_db_stock',
       user: "postgres",
       password: '1234',
       port: 5432
