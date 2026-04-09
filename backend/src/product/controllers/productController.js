@@ -30,9 +30,9 @@ export const createNew = async (req, res) => {
         const validatedData = await productSchema.validate(req.body, { abortEarly: false });
         const id = await service.create(validatedData);
         res.status(201).json({ message: "Creado", id });
-    } catch (error) {
+    } catch (error) {        
         if (error.name === "ValidationError") {
-            return res.status(500).json({ errores: error.errors });
+            return res.status(400).json({ errores: error.errors });
         }
         res.status(500).json({ error: "Error al crear" });
     }

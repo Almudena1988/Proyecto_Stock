@@ -1,6 +1,6 @@
 // Se comunica con la base de datos
 
-import db from "../../config/db";
+import db from "../../config/db.js";
 
 export const getAllProducts = async () => {
     return await db('products').select('*');
