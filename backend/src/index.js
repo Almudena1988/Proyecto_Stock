@@ -2,7 +2,7 @@
 import express from "express";
 
 // Se importa el archivo donde se definen las rutas para indicar que lo use
-import productRoutes from "../src/product/routes/productRoutes.js";
+import productRoutes from "../src/products/routes/productRoutes.js";
 
 // Se crea una aplicación usando Express
 const app = express();
