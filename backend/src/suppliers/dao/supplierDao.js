@@ -9,15 +9,19 @@ export const getSuppliersById = async (id) => {
 };
 
 export const createSupplier = async (data) => {
-    return await db('suppliers').insert(data).returning('id');    
+    const result = await db('suppliers').insert(data).returning('id');
+
+    if (typeof result[0] === "object" && "id" in result[0]) {
+        return result[0].id;
+    }
 };
 
 export const deleteSupplier = async (id) => {
     return await db('suppliers').where({ id }).del();
-}
+};
 
 export const updateSupplier = async (id, data) => {
     return await db('suppliers').where({ id }).update(data);
 
-}
+};
 

@@ -1,4 +1,4 @@
-// Intermediario entre cliente que hace la petición y la lógica de negocio. Recibe la petición HTTP (req),
+// Intermediario entre cliente que hace la petición y la lógica de negocio. Recibe la petición HTTP del cliente (req),
 // valida los datos de entrada, coordina con la capa de servicios y devuelve la respuesta HTTP (res)
 
 import * as service from "../services/productService.js";
@@ -15,7 +15,7 @@ export const all = async (req, res) => {
 
 export const byId = async (req, res) => {
     try {
-        const data = await service.getById(req.params.id);
+        const data = await service.getById(req.params.id); // req: es la petición del cliente. Lo que envía el cliente
         res.json(data);
     } catch (error) {
         if (error.message === "NOT_FOUND") {
