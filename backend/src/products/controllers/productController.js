@@ -51,7 +51,7 @@ export const update = async (req, res) => {
     try {
         const validatedData = await productSchema.validate(req.body, { abortEarly: false });
         await service.update(req.params.id, validatedData);
-        res.json({ mensaje: "Actualizado" });
+        res.json({ message: "Actualizado" });
 
     } catch (error) {
         if (error.name === "ValidationError") {
