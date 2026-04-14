@@ -8,6 +8,7 @@ import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import "normalize.css";
 import { useState } from 'react';
+import { Proveedores } from './components/proveedores'
 
 
 function App() {
@@ -19,9 +20,9 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Login />} />
-        
-        <Route path="/home" element={<Menu darkMode={darkMode} setDarkMode={setDarkMode} />}
-        />
+        <Route path="/home" element={<Menu darkMode={darkMode} setDarkMode={setDarkMode} />} />
+        <Route path="/proveedores" element={<Proveedores />} />
+      
       </Routes>
     </div>
 
