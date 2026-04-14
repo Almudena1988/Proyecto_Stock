@@ -10,3 +10,36 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 .pass {
   text-align: center;
 }
+
+.navbar {
+   display: flex;  
+   padding: 20px;
+   margin-right: 12px ;
+}
+
+.textonavbar {
+  display: flex;
+  
+  margin: 12px ;
+  padding: 20px;
+
+}
+.texto, .texto2 {
+  padding: 15px;
+}
+
+.icons {
+  padding: 10px;  
+}
+
+.light {
+  background-color: white;
+  color: black;
+  min-height: 100vh;
+}
+
+.dark {
+  background-color: #121212;
+  color: rgb(216, 193, 193);
+  min-height: 100vh;
+}
