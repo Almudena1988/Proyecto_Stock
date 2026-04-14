@@ -9,6 +9,7 @@ import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import "normalize.css";
 import { useState } from 'react';
 import { Proveedores } from './components/proveedores'
+import { Productos } from './components/productos';
 
 
 function App() {
@@ -22,7 +23,8 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Menu darkMode={darkMode} setDarkMode={setDarkMode} />} />
         <Route path="/proveedores" element={<Proveedores />} />
-      
+        <Route path="/productos" element={<Productos />} />
+
       </Routes>
     </div>
 
