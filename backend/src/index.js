@@ -21,6 +21,7 @@ app.listen(4000);
 
 // Mensaje por terminal para indicar que el puerto está corriendo
 console.log("Servidor en el puerto 4000");
+console.log("http://localhost:4000/api/v1/")
 
 
 
