@@ -19,6 +19,8 @@ export const createProduct = async (data) => {
 }
 
 export const deleteProduct = async (id) => {
+    // Se usa {} cuando se pasa un objeto.
+    // Es lo mismo .where('id', id) donde la columna id sea igual al valor de la variable id
     return await db('products').where({ id }).del();
 }
 
