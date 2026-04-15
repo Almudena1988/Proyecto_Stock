@@ -3,7 +3,7 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 
 .usuario,
 .pass {
-  width: 200px;
+  width: 220px;
   padding: 6px;
 }
 
@@ -12,24 +12,33 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 }
 
 .navbar {
-   display: flex;  
-   padding: 20px;
-   margin-right: 12px ;
+  display: flex;
+  padding: 20px;
+  margin-right: 12px;
 }
 
 .textonavbar {
   display: flex;
-  
-  margin: 12px ;
+
+  margin: 12px;
   padding: 20px;
 
 }
-.texto, .texto2 {
+
+.texto,
+.texto2 {
   padding: 15px;
 }
 
 .icons {
-  padding: 10px;  
+  padding: 10px;
+  background-color: white;
+  transition: background-color 0.5s ease;
+}
+.icons:hover {
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+
 }
 
 .light {
@@ -42,4 +51,16 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   background-color: #121212;
   color: rgb(216, 193, 193);
   min-height: 100vh;
+}
+
+.lateral {
+  display: grid;
+  padding: 20px;
+  margin: 20px;
+  background-color: rgb(197, 229, 229);
+  position: absolute;
+}
+
+.opcion {
+  margin-top: 20px;
 }
