@@ -18,15 +18,14 @@ export function Proveedores() { // Se define el componente
     return (
         <div>
             <h2>Proveedores</h2>
-
             
             {proveedores.length > 0 ? (// Comprueba si hay proveedores en el array. Si hay muestra la lista, si no hay datos, mensaje de carga
                 proveedores.map((p) => ( // map: método para recorrer todos los elementos de un array
-                    <div key={p.id} style={{ marginBottom: "10px" }}> 
+                    <div key={p.id} style={{ marginBottom: "10px", padding: "10px" }}> 
                         <strong>{p.name}</strong>
-                        <p>{p.id}</p>
-                        <p>{p.email}</p>
-                        <p>{p.address}</p>
+                        <p> <strong> Id: </strong>{p.id}</p>
+                        <p> <strong> Email: </strong>{p.email}</p>
+                        <p> <strong> Dirección: </strong>{p.address}</p>
                         <p>{p.created_at}</p>
                     </div>
                 ))
