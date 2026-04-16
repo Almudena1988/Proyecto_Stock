@@ -5,8 +5,23 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 .pass {
   width: 220px;
   padding: 6px;
+  justify-content: center;
+  background-color: rgb(228, 225, 231);
 }
 
+.inicio {
+  justify-content: center; 
+  padding: 20px;  
+  display: grid;   
+}
+
+.entrar{
+  margin-top: 12px;
+  size: 20px;
+  
+
+
+}
 .pass {
   text-align: center;
 }
@@ -19,10 +34,8 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 
 .textonavbar {
   display: flex;
-
   margin: 12px;
   padding: 20px;
-
 }
 
 .texto,
@@ -35,6 +48,7 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   background-color: white;
   transition: background-color 0.5s ease;
 }
+
 .icons:hover {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
   border-radius: 12px;
@@ -63,4 +77,5 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 
 .opcion {
   margin-top: 20px;
+  font-size: 20px ;
 }

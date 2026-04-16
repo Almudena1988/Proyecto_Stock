@@ -19,8 +19,8 @@ export function Productos() {
             {productos.length > 0 ? (
                 productos.map((p) => (
 
-                    <div key={p.id} style={{ marginBottom: "10px", padding: "10px" }}>
-                        <p><strong>Producto:</strong> {p.name}</p>
+                    <div key={p.id} style={{ marginBottom: "10px", padding: "10px" }}>                        
+                        <p> <strong>Producto:</strong> {p.name} </p>
                         <p> <strong> Id:</strong> {p.id}</p>
                         <p> <strong> Descripcion: </strong>{p.description}</p>
                         <p> <strong> Stock actual: </strong>{p.stock_current}</p>
