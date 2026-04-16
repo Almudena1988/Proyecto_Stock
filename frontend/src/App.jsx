@@ -10,6 +10,8 @@ import "normalize.css";
 import { useState } from 'react';
 import { Proveedores } from './components/proveedores'
 import { Productos } from './components/productos';
+import { Pedido } from './components/pedido'
+
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
         <Route path="/home" element={<Menu darkMode={darkMode} setDarkMode={setDarkMode} />} />
         <Route path="/proveedores" element={<Proveedores />} />
         <Route path="/productos" element={<Productos />} />
+        <Route path="/pedido" element={<Pedido />} />
+
 
       </Routes>
     </div>
