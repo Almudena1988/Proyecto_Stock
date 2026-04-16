@@ -11,6 +11,7 @@ import { useState } from 'react';
 import { Proveedores } from './components/proveedores'
 import { Productos } from './components/productos';
 import { Pedido } from './components/pedido'
+import { NewOrder } from './components/nuevoPedido';
 
 
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/proveedores" element={<Proveedores />} />
         <Route path="/productos" element={<Productos />} />
         <Route path="/pedido" element={<Pedido />} />
+        <Route path="/new" element={<NewOrder/>} />
 
 
       </Routes>
