@@ -8,11 +8,11 @@ import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import "normalize.css";
 import { useState } from 'react';
-import { Proveedores } from './pages/proveedores'
-import { Productos } from './pages/productos';
+import { Proveedores } from './pages/suppliers'
+import { Productos } from './pages/products';
 import { Pedido } from './pages/pedido'
 import { NewOrder } from './pages/nuevoPedido';
-import { CrearProducto } from './pages/nuevoProducto';
+import { CrearProducto } from './pages/newProduct';
 
 
 
@@ -29,8 +29,8 @@ function App() {
         <Route path="/proveedores" element={<Proveedores />} />
         <Route path="/productos" element={<Productos />} />
         <Route path="/pedido" element={<Pedido />} />
-        <Route path="/new" element={<NewOrder/>} />
-        <Route path="/newproduct" element={<CrearProducto/>} />
+        <Route path="/new" element={<NewOrder />} />
+        <Route path="/newproduct" element={<CrearProducto />} />
 
       </Routes>
     </div>
