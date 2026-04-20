@@ -4,6 +4,9 @@ export function NewOrder() {
 
     const [order, setNewOrder] = useState([]);
 
+    // order al principio = []. Cuando se hace llamada a la API, devuelve datos (data) y setNewOrder cambia el valor inicial
+    // de order de [] a los datos que traiga data
+
     useEffect(() => {
         fetch('/api/v1/products')
             .then(res => res.json())
@@ -31,7 +34,7 @@ export function NewOrder() {
                                 <td>{o.name}</td>
                                 <td>{o.stock_current}</td>
                                 <td>{o.stock_minimum}</td>
-                                <td><input type="number" value="0" />Unidades</td>
+                                <td><input type="number" min="0" />Unidades</td>
                             </tr>
                         ))) : (<p>Cargando</p>)}
                 </tbody>
