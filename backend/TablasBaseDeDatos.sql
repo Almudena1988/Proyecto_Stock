@@ -13,8 +13,7 @@ CREATE TABLE orders (
 CREATE TABLE products (
     id BIGSERIAL PRIMARY KEY,
     name VARCHAR(150) NOT NULL,
-    description TEXT,
-    barcode VARCHAR(100) NOT NULL UNIQUE,
+    description TEXT,   
     stock_current INTEGER NOT NULL DEFAULT 0 CHECK (stock_current >= 0),
     stock_minimum INTEGER NOT NULL DEFAULT 0 CHECK (stock_minimum >= 0),
     supplier_id BIGINT
