@@ -4,9 +4,9 @@ export function CrearProducto() {
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
-    const [stock_current, setStockCurrent] = useState("");
-    const [stock_minimum, setStockMinimum] = useState("");
-    const [supplierId, setSupplierId] = useState("");
+    const [stock_current, setStockCurrent] = useState(0);
+    const [stock_minimum, setStockMinimum] = useState(0);
+    const [supplier_id, setSupplierId] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -21,7 +21,7 @@ export function CrearProducto() {
                     description,
                     stock_current,
                     stock_minimum,
-                    supplierId
+                    supplier_id
                 })
             });
             const data = await response.json().catch(() => null);
@@ -29,7 +29,8 @@ export function CrearProducto() {
             if (response.ok) {
                 console.log("Nuevo producto añadido");
             } else {
-                console.log("Error backend:", data);
+                console.log("Status:", response.status);
+                console.log("Body:", data);
             }
 
         } catch (error) {
@@ -64,9 +65,9 @@ export function CrearProducto() {
                 onChange={(e) => setStockMinimum(e.target.value)}
             />
             <input
-                type="number"
+                type="text"
                 placeholder="Id del proveedor"
-                value={supplierId}
+                value={supplier_id}
                 onChange={(e) => setSupplierId(e.target.value)}
             />
             <button type="submit">Añadir</button>

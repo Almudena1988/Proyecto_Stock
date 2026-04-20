@@ -36,7 +36,9 @@ export function NewOrder() {
                                 <td>{o.stock_minimum}</td>
                                 <td><input type="number" min="0" />Unidades</td>
                             </tr>
-                        ))) : (<p>Cargando</p>)}
+                        ))) : (<tr>
+                            <td colSpan="4">Cargando...</td>
+                        </tr>)}
                 </tbody>
             </table>
 
