@@ -8,8 +8,10 @@ export function CrearProducto() {
     const [stock_minimum, setStockMinimum] = useState(0);
     const [supplier_id, setSupplierId] = useState("");
 
+    // e: Evento que notifica cuando ocurre algo en la interfaz
+    // handleSubmit: handler de evento
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Evita que la página se cargue al enviar el formulario
         try {
             const response = await fetch('/api/v1/products', {
                 method: 'POST',
@@ -39,12 +41,16 @@ export function CrearProducto() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        //onSubmit siempre dispara un evento (como onClick u onChange)
+        <form onSubmit={handleSubmit}>          
             <input
                 type="text"
                 placeholder="Nombre"
-                value={name}
+                value={name} // 
+                //onChange: actualiza el estado cada vez que se escriba en el input
                 onChange={(e) => setName(e.target.value)}
+
+// Se escribe el número, se dispara onChange, React crea el evento, e.target.value =5, se ejecuta: setStockCurrent("5")
             />
             <input
                 type="text"

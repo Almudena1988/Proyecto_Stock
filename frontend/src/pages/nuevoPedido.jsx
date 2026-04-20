@@ -30,7 +30,7 @@ export function NewOrder() {
                 <tbody>
                     {order.length > 0 ? (
                         order.map((o) => (
-                            <tr key={o.id}>
+                            <tr key={o.id}>                                
                                 <td>{o.name}</td>
                                 <td>{o.stock_current}</td>
                                 <td>{o.stock_minimum}</td>
