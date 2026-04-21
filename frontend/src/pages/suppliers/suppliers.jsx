@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { NewSupplier } from "./newSupplier";
+import { UpdateSupplier } from "./updateSupplier";
 
 
 export function Proveedores() { // Se define el componente
@@ -9,6 +10,7 @@ export function Proveedores() { // Se define el componente
     // setProveedores: función para actualizar el estado
     const [proveedores, setProveedores] = useState([]);  // Es el estado inicial 
     const [nuevoProveedor, setNuevoProveedor] = useState(false);
+    const [proveedorEdit, setProveedorEdit] = useState(null);
 
 
     useEffect(() => { // Para ejecutar código cuando el componente se carga en pantalla o se cambia
@@ -17,6 +19,26 @@ export function Proveedores() { // Se define el componente
             .then(data => setProveedores(data)) // Guarda los datos en proveedores. Provoca que el componente se vuelva a renderizar
             .catch(err => console.error("Error:", err));
     }, []); // [] => el useEffect solo se ejecuta una vez al montar el componente
+
+    const handleDelete = async(id)=> {
+        try{
+            const response = await fetch(`/api/v1/suppliers/${id}`,{
+                method: "DELETE"
+            });
+
+            if (response.ok){
+                console.log("Proveedor eliminado")
+                setProveedores(previa =>
+                    // Filter crea un nuevo array con los elementos que tengan id diferente al que quiero borrar
+                    previa.filter(p => p.id !== id)
+                );
+            }else{
+                console.log("Status: ", response.status)
+            }
+        }catch(error){
+            console.log("Error al borrar proveedor")
+        }
+    }
 
     return (
         <div>
@@ -39,8 +61,11 @@ export function Proveedores() { // Se define el componente
                             <td>{p.email}</td>
                             <td>{p.address}</td>
                             <td>{p.created_at}</td>
-                            <td><button>Modificar</button></td>
-                            <td><button>Eliminar</button></td>
+                            <td>
+                                <button onClick={() => setNuevoProveedor(p)}>Modificar</button>
+                                </td>
+                            <td>
+                                <button onClick={() => handleDelete(p.id)}>Eliminar</button></td>
                         </tr>
                     ))) : (<tr>
                         <td>Cargando datos</td>
@@ -50,8 +75,15 @@ export function Proveedores() { // Se define el componente
 
             </table>
             <div>
+                {/* Añadir*/}
                 <button onClick={() => setNuevoProveedor(true)}>Añadir Proveedor</button>
             </div>
+            <div>
+                {/* Editar */}
+                {proveedorEdit && ( <UpdateSupplier {...setProveedorEdit}/>)}
+            </div>
+            
+            {/* Añadir */}
             <div>
                 {nuevoProveedor && (<NewSupplier />)}
             </div>
