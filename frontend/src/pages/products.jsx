@@ -15,7 +15,7 @@ export function Productos() {
         fetch("/api/v1/products")
             .then(res => res.json())
             .then(data => setProductos(data))
-            .catch(err => console.error("ERROR: ", err));
+            .catch(err => console.error("Error: ", err));
     }, []);
 
     // Para borrar producto

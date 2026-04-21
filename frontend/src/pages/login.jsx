@@ -36,10 +36,18 @@ export function Login() {
             </div>
             <div className='inicio'>
                 <h3>Usuario:</h3>
-                <input className='usuario' type="text" placeholder='Introduce el nombre de usuario' onChange={(e) => setUsername(e.target.value)} />
+                <input
+                    className='usuario'
+                    type="text"
+                    placeholder='Introduce el nombre de usuario'
+                    onChange={(e) => setUsername(e.target.value)} />
 
                 <h3>Contraseña:</h3>
-                <input className='pass' type="password" placeholder='Introduce la contraseña' onChange={(e) => setPassword(e.target.value)} />
+                <input
+                    className='pass'
+                    type="password"
+                    placeholder='Introduce la contraseña'
+                    onChange={(e) => setPassword(e.target.value)} />
 
                 <br /><br />
                 <button className='entrar' onClick={handleLogin}>Entrar</button>
