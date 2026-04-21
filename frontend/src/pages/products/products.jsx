@@ -67,7 +67,7 @@ export function Productos() {
                                     <td>{p.stock_current}</td>
                                     <td>{p.stock_minimum}</td>
                                     <td>{p.supplier_id}</td>
-                                    <td> 
+                                    <td>
                                         {/* Editar */}
                                         <button onClick={() => setProductoEditando(p)}>
                                             Modificar

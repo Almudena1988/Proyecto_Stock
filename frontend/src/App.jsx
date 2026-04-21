@@ -8,11 +8,11 @@ import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import "normalize.css";
 import { useState } from 'react';
-import { Proveedores } from './pages/suppliers'
-import { Productos } from './pages/products';
-import { Pedido } from './pages/pedido'
-import { NewOrder } from './pages/nuevoPedido';
-import { CrearProducto } from './pages/newProduct';
+import { Proveedores } from './pages/suppliers/suppliers'
+import { Productos } from './pages/products/products';
+import { Pedido } from './pages/order/order'
+import { NewOrder } from './pages/order/newOrder';
+import { CrearProducto } from './pages/products/newProduct';
 
 
 
