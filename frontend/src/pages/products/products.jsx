@@ -102,8 +102,7 @@ export function Productos() {
                 // Si el componente tiene props (ModificarProducto tiene: id, name...)
                 // con spread operator ... se le pueden pasar props dinámicos
                 // sin spread operator => <ModificarProducto id={producto.id} name={producto.name} stock={producto.stock} />
-                <ModificarProducto {...productoEditando} />
-            )}
+                <ModificarProducto {...productoEditando} />)}
             {/* Añadir */}
             <div>
                 {productoCreando && (<CrearProducto />)}
