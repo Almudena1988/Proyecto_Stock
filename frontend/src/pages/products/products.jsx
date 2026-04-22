@@ -11,8 +11,6 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 
-
-
 export function Productos() {
     const [productos, setProductos] = useState([]);
     const [productoEditando, setProductoEditando] = useState(null);
@@ -27,6 +25,8 @@ export function Productos() {
     const handleClose = () => {
         setOpen(false);
     };
+
+
 
     useEffect(() => {
         fetch("/api/v1/products")
@@ -94,10 +94,10 @@ export function Productos() {
                                         {/* Borrar */}
                                         <Button onClick={handleClickOpen}> Eliminar </Button>
                                         <Dialog open={open} onClose={handleClose}>
-                                            <DialogTitle id="alert-dialog-title">{"Mensaje"}</DialogTitle>
+                                            <DialogTitle id="dialog-title">{"Mensaje"}</DialogTitle>
 
                                             <DialogContent>
-                                                <DialogContentText id="alert-dialog-description">
+                                                <DialogContentText id="dialog-description">
                                                     ¿Estás seguro de que quieres eliminar el contenido?
                                                 </DialogContentText>
                                             </DialogContent>
@@ -106,9 +106,15 @@ export function Productos() {
                                                 <Button onClick={handleClose} color="primary">
                                                     No
                                                 </Button>
-                                                <Button onClick={() => handleDelete(p.id)} color="primary" autoFocus>
+
+                                                {/* Se borra una fila y se cierra la ventana*/}
+                                                <Button onClick={() => {
+                                                    handleDelete(p.id);
+                                                    handleClose();
+                                                }} color="primary" autoFocus>
                                                     Si
                                                 </Button>
+                                                <Button style={{ top: "0", right: "0", position: "absolute" }} onClick={handleClose}>x</Button>
                                             </DialogActions>
                                         </Dialog>
                                     </td>

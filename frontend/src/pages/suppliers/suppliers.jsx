@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 import { NewSupplier } from "./newSupplier";
 import { UpdateSupplier } from "./updateSupplier";
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
 
 
 export function Proveedores() { // Se define el componente
@@ -12,6 +19,16 @@ export function Proveedores() { // Se define el componente
     const [nuevoProveedor, setNuevoProveedor] = useState(false);
     const [proveedorEdit, setProveedorEdit] = useState(null);
 
+    const [open, setOpen] = useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
 
     useEffect(() => { // Para ejecutar código cuando el componente se carga en pantalla o se cambia
         fetch("/api/v1/suppliers") // Petición a la API
@@ -20,26 +37,26 @@ export function Proveedores() { // Se define el componente
             .catch(err => console.error("Error:", err));
     }, []); // [] => el useEffect solo se ejecuta una vez al montar el componente
 
-    const handleDelete = async(id)=> {
-        try{
-            const response = await fetch(`/api/v1/suppliers/${id}`,{
+    const handleDelete = async (id) => {
+        try {
+            const response = await fetch(`/api/v1/suppliers/${id}`, {
                 method: "DELETE"
             });
 
-            if (response.ok){
+            if (response.ok) {
                 console.log("Proveedor eliminado")
                 setProveedores(previa =>
                     // Filter crea un nuevo array con los elementos que tengan id diferente al que quiero borrar
                     previa.filter(p => p.id !== id)
                 );
-            }else{
+            } else {
                 console.log("Status: ", response.status)
             }
-        }catch(error){
+        } catch (error) {
             console.log("Error al borrar proveedor")
         }
     }
-
+    // Empieza lo que el componente muestra por pantalla, lo que renderiza
     return (
         <div>
             <h2>Proveedores</h2>
@@ -63,9 +80,34 @@ export function Proveedores() { // Se define el componente
                             <td>{p.created_at}</td>
                             <td>
                                 <button onClick={() => setNuevoProveedor(p)}>Modificar</button>
-                                </td>
+                            </td>
                             <td>
-                                <button onClick={() => handleDelete(p.id)}>Eliminar</button></td>
+                                <Button onClick={handleClickOpen}> Eliminar</Button>
+                                <Dialog
+                                    open={open}
+                                    onClose={handleClose}
+                                    aria-labelledby="alert-dialog-title"
+                                    aria-describedby="alert-dialog-description"
+                                    role="alertdialog"
+                                >
+                                    <DialogTitle id="alert-dialog-title"> {"Mensaje"} </DialogTitle>
+                                    <DialogContent>
+
+                                        <DialogContentText id="alert-dialog-description">
+                                            ¿Estás seguro de que quieres eliminar la información?
+                                        </DialogContentText>
+                                    </DialogContent>
+
+                                    <DialogActions>
+                                        <Button onClick={handleClose} autoFocus>No</Button>
+                                        <Button onClick={() => {
+                                            handleDelete(p.id);
+                                            handleClose();
+                                        }}>
+                                            Si
+                                        </Button>
+                                    </DialogActions>
+                                </Dialog></td>
                         </tr>
                     ))) : (<tr>
                         <td>Cargando datos</td>
@@ -80,9 +122,9 @@ export function Proveedores() { // Se define el componente
             </div>
             <div>
                 {/* Editar */}
-                {proveedorEdit && ( <UpdateSupplier {...setProveedorEdit}/>)}
+                {proveedorEdit && (<UpdateSupplier {...setProveedorEdit} />)}
             </div>
-            
+
             {/* Añadir */}
             <div>
                 {nuevoProveedor && (<NewSupplier />)}
