@@ -29,7 +29,7 @@ export function Menu({ darkMode, setDarkMode }) {
                 <p className="opcion"> <Link to="">Alertas</Link></p>
                 <p className="opcion"> <Link to="/pedido">Pedidos</Link></p>
                 <p className="opcion"> <Link to="/new"> Nuevo pedido</Link> </p>
-                <p className="opcion"> <Link to="/modales"> Modales</Link> </p>
+               
             </div>
         </div>
     );
