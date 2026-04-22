@@ -3,6 +3,13 @@ import { useState, useEffect } from "react";
 import { CrearProducto } from "./newProduct";
 import { Link } from "react-router-dom";
 import { ModificarProducto } from "./updateProduct";
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
 
 
 
@@ -10,6 +17,16 @@ export function Productos() {
     const [productos, setProductos] = useState([]);
     const [productoEditando, setProductoEditando] = useState(null);
     const [productoCreando, setProductoCreando] = useState(false); //En false no muestra el formulario
+
+    const [open, setOpen] = useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     useEffect(() => {
         fetch("/api/v1/products")
@@ -75,7 +92,25 @@ export function Productos() {
                                     </td>
                                     <td>
                                         {/* Borrar */}
-                                        <button onClick={() => handleDelete(p.id)}>Eliminar</button>
+                                        <Button onClick={handleClickOpen}> Eliminar </Button>
+                                        <Dialog open={open} onClose={handleClose}>
+                                            <DialogTitle id="alert-dialog-title">{"Mensaje"}</DialogTitle>
+
+                                            <DialogContent>
+                                                <DialogContentText id="alert-dialog-description">
+                                                    ¿Estás seguro de que quieres eliminar el contenido?
+                                                </DialogContentText>
+                                            </DialogContent>
+
+                                            <DialogActions>
+                                                <Button onClick={handleClose} color="primary">
+                                                    No
+                                                </Button>
+                                                <Button onClick={() => handleDelete(p.id)} color="primary" autoFocus>
+                                                    Si
+                                                </Button>
+                                            </DialogActions>
+                                        </Dialog>
                                     </td>
                                 </tr>
                             ))) : (<tr>
@@ -89,11 +124,8 @@ export function Productos() {
                 {/* Añadir */}
                 {/*Se inicializa la función en true para mostrar el formulario */}
                 <button onClick={() => setProductoCreando(true)}>
-
                     Añadir producto nuevo
                 </button>
-
-
 
             </div>
 
@@ -107,6 +139,7 @@ export function Productos() {
             <div>
                 {productoCreando && (<CrearProducto />)}
             </div>
+
         </div>
     );
 
