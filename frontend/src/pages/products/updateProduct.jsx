@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Toaster, sileo } from "sileo";
 
 // El componente de React recibe los props desde fuera
 export function ModificarProducto({
@@ -8,8 +9,7 @@ export function ModificarProducto({
     stock_current,
     stock_minimum,
     supplier_id
-}) 
-{
+}) {
 
     const [newname, setName] = useState(name);
     const [new_description, setDescription] = useState(description);
@@ -37,13 +37,20 @@ export function ModificarProducto({
 
             if (response.ok) {
                 console.log("Producto actualizado");
+                sileo.success({ title: "Producto actualizado" })
+
             } else {
                 console.log("Status:", response.status);
                 console.log("Body:", data);
+                sileo.error({ title: "Error actulizando productos" })
+            }
+            if (new_stock_current < 3) {
+                alert("Stock bajo");
             }
 
         } catch (error) {
             console.log("Error modificando el producto");
+
         }
     };
 

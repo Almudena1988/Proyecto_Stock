@@ -9,6 +9,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { Toaster, sileo } from "sileo";
 
 
 export function Productos() {
@@ -44,6 +45,8 @@ export function Productos() {
 
             if (response.ok) {
                 console.log("Producto eliminado");
+                sileo.success({ title: "Producto eliminado"})
+
 
                 // Actualiza sin recargar
                 setProductos(previa =>

@@ -5,6 +5,7 @@ import { createRoot } from 'react-dom/client' // Crea el "root" donde React se m
 import './index.css' // Se importa porque debe aplicarse desde el inicio
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
+import { Toaster } from "sileo";
 
 
 
@@ -12,6 +13,7 @@ import { BrowserRouter } from 'react-router-dom'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
+    <Toaster position="top-right" />
       <App />
     </BrowserRouter>
 
