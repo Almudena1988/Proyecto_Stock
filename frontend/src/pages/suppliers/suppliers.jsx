@@ -7,6 +7,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { Toaster, sileo } from "sileo";
 
 
 
@@ -45,6 +46,7 @@ export function Proveedores() { // Se define el componente
 
             if (response.ok) {
                 console.log("Proveedor eliminado")
+                sileo.error({ title: "Proveedor eliminado"})
                 setProveedores(previa =>
                     // Filter crea un nuevo array con los elementos que tengan id diferente al que quiero borrar
                     previa.filter(p => p.id !== id)

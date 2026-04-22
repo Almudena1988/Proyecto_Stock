@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Toaster, sileo } from "sileo";
 
 export function NewSupplier() {
 
@@ -26,6 +27,8 @@ export function NewSupplier() {
 
             if (response.ok) {
                 console.log("Proveedor añadido")
+                sileo.success({ title: "Nuevo proveedor añadido"})
+                
             } else {
                 console.log("Status: ", response.status)
                 console.log("Body: ", data)

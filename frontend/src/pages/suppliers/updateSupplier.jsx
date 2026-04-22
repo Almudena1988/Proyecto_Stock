@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Toaster, sileo } from "sileo";
 
 export function UpdateSupplier({
     id,
@@ -33,7 +34,8 @@ export function UpdateSupplier({
             const data = await response.json().catch(() => null);
 
             if (response.ok) {
-                console.log("Nuevo proveedor añadido")
+                console.log("Datos del proveedor actualizados")
+                sileo.success({ title: "Nuevo proveedor añadido"})
             } else {
                 console.log("Status: ", response.status)
                 console.log("Body: ", data)
