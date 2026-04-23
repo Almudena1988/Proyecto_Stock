@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NewSupplier } from "./newSupplier";
+import { NewSupplier } from "./NewSupplier";
 import { UpdateSupplier } from "./UpdateSupplier";
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';

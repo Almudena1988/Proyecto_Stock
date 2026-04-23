@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { CrearProducto } from "./newProduct";
+import { CrearProducto } from "./NewProduct";
 import { Link } from "react-router-dom";
 import { ModificarProducto } from "./UpdateProduct";
 import Button from '@mui/material/Button';
