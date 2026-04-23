@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Icon } from '@blueprintjs/core'
 
 
 export function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [mensaje, setMensaje] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     const navigate = useNavigate();
 
@@ -45,9 +47,13 @@ export function Login() {
                 <h3>Contraseña:</h3>
                 <input
                     className='pass'
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     placeholder='Introduce la contraseña'
                     onChange={(e) => setPassword(e.target.value)} />
+                <Icon
+                    icon={showPassword ? "eye-off" : "eye-open"}
+                    onClick={() => setShowPassword(!showPassword)}
+                    style={{ cursor: "pointer" }} />
 
                 <br /><br />
                 <button className='entrar' onClick={handleLogin}>Entrar</button>
