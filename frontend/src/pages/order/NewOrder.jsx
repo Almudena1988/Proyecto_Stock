@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 export function NewOrder() {
 
     const [order, setNewOrder] = useState([]);
+    const [producto, setProducto] = useState(null);
+    const [cantidad, setCantidad] = useState(null);
 
     // order al principio = []. Cuando se hace llamada a la API, devuelve datos (data) y setNewOrder cambia el valor inicial
     // de order de [] a los datos que traiga data
@@ -45,6 +47,8 @@ export function NewOrder() {
             <div>
                 <button type="button"> Submit </button>
             </div>
+
+            
         </div>
     );
 }

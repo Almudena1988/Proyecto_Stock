@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NewSupplier } from "./newSupplier";
-import { UpdateSupplier } from "./updateSupplier";
+import { UpdateSupplier } from "./UpdateSupplier";
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -47,6 +47,8 @@ export function Proveedores() { // Se define el componente
             if (response.ok) {
                 console.log("Proveedor eliminado")
                 sileo.error({ title: "Proveedor eliminado"})
+
+                //Recarga la página automáticamente
                 setProveedores(previa =>
                     // Filter crea un nuevo array con los elementos que tengan id diferente al que quiero borrar
                     previa.filter(p => p.id !== id)

@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { CrearProducto } from "./newProduct";
 import { Link } from "react-router-dom";
-import { ModificarProducto } from "./updateProduct";
+import { ModificarProducto } from "./UpdateProduct";
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -26,7 +26,6 @@ export function Productos() {
     const handleClose = () => {
         setOpen(false);
     };
-
 
 
     useEffect(() => {

@@ -42,7 +42,7 @@ export function ModificarProducto({
             } else {
                 console.log("Status:", response.status);
                 console.log("Body:", data);
-                sileo.error({ title: "Error actulizando productos" })
+                sileo.error({ title: "Error actualizando productos" })
             }
             if (new_stock_current < 3) {
                 alert("Stock bajo");

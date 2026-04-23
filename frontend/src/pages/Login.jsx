@@ -31,8 +31,8 @@ export function Login() {
     };
 
     return (
-        <div>
-            <div className='inicio'>
+        <body className='login'>
+            <div className='inicio-sesion'>
                 <h3 className='titulo'> Inicio de sesión</h3>
 
             </div>
@@ -61,7 +61,7 @@ export function Login() {
                 <p>{mensaje}</p>
             </div>
 
-        </div>
+        </body>
     );
 }
 
