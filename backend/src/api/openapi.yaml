@@ -1,0 +1,461 @@
+openapi: "3.0.0"
+info: 
+  title: Api de Stock
+  description: Api para gestionar datos de la base de datos de Stock
+  version: 1.0.0
+servers: 
+  -url: hhtp://localhost:4000/api/v1
+paths: 
+  /suppliers:
+
+    get:
+      tags:
+        -suppliers
+      summary: Obtener todos los proveedores   
+      description: Devuelve una lista con todos los proveedores  
+      responses: 
+        "200":
+          description: Lista de proveedores conseguida
+          content:
+            application/json:
+              schema:
+                type: array
+
+        "204":
+          description: Lista vacía
+          content:
+            application/json:
+              schema:
+                type: array
+
+        "500":
+          description: Error al obtener los datos del proveedor
+          content:
+            application/json:
+              schema:
+                type: array
+
+        default: 
+          description: Error inesperado
+          content:
+            application/json:
+              schema:
+                type: array
+
+    get:
+      tags:
+        -suppliers/{id}:
+      summary: Obtener los datos de un proveedor según id
+      description: Devuelve una lista con los datos de un proveedor
+      responses:
+        "200":
+          description: Lista del proveedor conseguida  
+          content:
+            application/json:
+              schema:
+                type: array
+
+        "404":
+          description: Dato del proveedor no encontrado   
+          content:
+            application/json:
+              schema:
+                type: array
+
+        "500":
+          description: Error interno
+          content:
+              application/json:
+                schema:
+                  type: array
+
+        default: 
+          description: Error inesperado
+          content:
+            application/json:
+              schema:
+                type: array          
+
+    post:
+      tags:
+        -suppliers{id}:
+      summary: Crea datos de un nuevo proveedor
+      description: Crea una lista con datos de un nuevo proveedor
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+      responses:
+        "201":
+          description: Datos del proveedor creados
+          content:
+            application/json:
+              schema:
+                type: array
+
+        "400":
+          description: Cuerpo de la petición incorrecto
+          content:
+            application/json:
+              schema:
+                type: array
+
+        "500": 
+          description: Error al crear
+          content:
+            application/json:
+              schema:
+                type: array
+
+        default: 
+          description: Error inesperado
+          content:
+            application/json:
+              schema:
+                type: array     
+
+    put:
+      tags:
+        -suppliers/{id}
+      summary: Modificar datos de un proveedor
+      description: Devuelve una lista con los datos del proveedor midificados
+      responses:
+        "200":
+          description: Datos del proveedor actualizados
+          content:
+            application/json:
+              schema:
+                type: array
+
+        "400":
+          description: Cuerpo de la petición incorrecto
+          content:
+            application/json:
+              schema:
+                type: array
+
+        "404":
+          description: Datos no encontrados
+          content: 
+            application/json:  
+              schema:
+                type: array
+
+        "500":
+          description: Error al actualizar
+          content:
+            application/json:
+              schema:
+                type: array 
+
+        default: 
+          description: Error inesperado
+          content:
+            application/json:
+              schema:
+                type: array 
+
+    delete:
+      tags:
+        -suppliers/{id}  
+      summary: Eliminar datos de un proveedor
+      description: Elimina la entrada de la base de datos de un proveedor
+      responses:
+        "200":
+          description: Datos del proveedor eliminados
+          content: 
+            application/json:
+              schema:
+                type: array
+
+        "500":
+          description: Error al eliminar proveedor
+          content:
+            application/json:
+              schema:
+                type: array
+
+        default:
+          description: Error inesperado
+          content:
+            application/json:
+              schema:
+                type: array 
+components: 
+  schemas:
+    supplierResponse:
+      type: objetc
+      required:
+        - id
+        - name
+        - email
+      properties:
+        id:
+          type: integer
+          description: identificador único
+        nombre:
+          type: string
+          description: Nombre del proveedor
+        email:
+          type: string
+          description: Correo del proveedor
+
+    supplierRequest:
+      type: object
+      required:
+        - name
+        - email
+      properties:
+        name:
+          type: string
+          description: Nombre del proveedor
+        email:
+          type: string
+          description: Correo del proveedor
+                                            
+                                       
+
+  /products:
+
+    get:
+      tags:
+        -products
+      summary: Obtener todos los productos
+      description: Devuelve una lista con todos los productos
+      responses:
+        "200":
+          description: Lista conseguida existosamente
+          content:
+            application/json:
+              schema:
+                type: array
+
+        "204":
+          description: Lista vacía
+          content:
+            application/json:
+              schema:
+                type: array  
+
+        "500":
+          description: Error al obtener los datos de los productos
+          content:
+            application/json:
+              schema:
+                type: array
+
+        default:
+          description: Error inesperado
+          content:
+            application/json:
+              schema:
+                type: array
+
+    /get:
+      tags:
+        -suppliers/{id}  
+      summary: Obtener datos de un proveedor
+      description: Devuelve una lista con los datos de un proveedor
+      responses:
+        "200":
+          description: Lista conseguida existosamente
+          content:
+            application/json:
+              schema:
+                type: array
+
+        "404":
+          description: Dato no encontrado
+          content: 
+            application/json:
+              schema:
+                type: array
+
+        "500":
+          description: Error interno
+          content:
+            application/json:
+              schema:
+                type: array
+
+        default: 
+          description: Error inesperado
+          content:
+            application/json:
+              schema:
+                type: array  
+
+    /post:
+      tags:
+        - suppliers/{id}
+      summary: Añade datos de proveedor
+      description: Agrega un proveedor nuevo en la base de datos
+      requestBody:
+        required: true
+        content: 
+          application/json:
+            schema:
+              type: array
+      responses:   
+        "201":
+          descrption: Dados del proveedor añadidos
+          content:
+            application/json:
+              schema:
+                type: array
+
+        "400":
+          description: Cuerpo de la petición incorrecto
+          content:
+            application/json:
+              schema:
+                type: array
+
+        "500":
+          description: Error al crear
+          content:
+            application/json:
+              schema:
+                type: array
+
+        default:
+          description: Error inesperado
+          content:
+            application/json:
+              schema:
+                type: array
+
+    /put: 
+      tags:
+        - suppliers/{id}
+      summary: Modificar datos de un proveedor
+      description: Modifica los datos de uno de los proveedores en la base de datos
+      responses:
+        "200":
+          description: Datos del proveedor actualizados
+          content:
+            application/json:
+              schema:
+                type: array
+
+        "400":
+          description: Cuerpo de la petición incorrecto
+          content:
+            application/json:
+              schema:
+                type: array
+
+        "404":
+          description: Datos no encontrados
+          content:
+            application/json:
+              schema:
+                type: array
+
+        "500":
+          description: Error al actualizar
+          content: 
+            application/json:
+              schema:
+                type: array
+
+        default:
+          description: Error inesperado
+          content:
+            application/json:
+              schema:
+                type: array  
+
+    /delete:
+      tags:
+        -suppliers/{id}
+      summary: Borrar uno de los proveedores
+      description: Borra los datos de uno de los proveedores de la base de datos
+      responses:
+        "200":
+          description: Datos del proveedor eliminados
+          content:
+            application/json:
+              schema:
+                type: array
+
+        "500":
+          description: Error al eliminar proveedor
+          content:
+            application/json:
+              schema:
+                type: array
+
+        default:
+          description: Error inesperado
+          content:
+            application/json:
+              schema:
+                type: array    
+
+components: # Donde se definen las entradas y respuestas que va a usar la API
+  schemas:
+    productResponse:
+      type: object
+      required:
+        -id
+        -name
+        -stock_current
+        -stock_minumun
+        -supplier_id
+      properties:
+        id:
+          type: integer
+          description: ID del producto
+        name:
+          type: string
+          description: Nombre del producto
+        stock_current:
+          type: integer
+          description: Cantidad de stock en ese momento
+        stock_minimun:
+          type: integer
+          description: Cantidad de stock mínimo
+        supplier_id: 
+          type: integer
+          description: ID del proveedor
+
+    productRequest:
+      type: object
+      required:
+        -name
+        -stock_current
+        -stock_minimun
+        -supplier_id
+      properties:
+        name:
+          type: string
+          description: Nombre del producto
+        stock_current:
+          type: integer
+          description: Cantidad de stock en ese momento
+        stock_minimun:
+          type: integer
+          description: Cantidad mínima de stock  
+    
+
+                   
+                   
+
+
+
+                                
+
+                                                            
+
+
+                                                      
+        
+
+
+
+                        
+
+
