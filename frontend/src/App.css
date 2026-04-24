@@ -9,7 +9,7 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   background-color: rgb(228, 225, 231);
 }
 
-.inicio {
+.inicio, .inicio-sesion {
   justify-content: center; 
   padding: 20px;  
   display: grid;   
@@ -17,7 +17,7 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 
 .entrar{
   margin-top: 12px;
-  size: 20px;
+  font-size: 20px;
 
 }
 .pass {
@@ -25,9 +25,13 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 }
 
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   padding: 20px;
-  margin-right: 12px;
+  z-index: 1000;
 }
 
 .textonavbar {
@@ -66,11 +70,15 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 }
 
 .lateral {
-  display: grid;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 200px;
+  height:fit-content;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
-  margin: 20px;
   background-color: rgb(197, 229, 229);
-  position: absolute;
 }
 
 .opcion {
