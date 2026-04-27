@@ -23,15 +23,17 @@ export const getOrderById = async (req, res) => {
 
 export const createOrder = async (req, res) => {
     try {
+        console.log(req.body)
         const data = await service.createNewOrder(req.body);
-        res.json(data);
-        res.status(201).json({ message: "Creado", id: data.id, data });
+       
+        return res.status(201).json({ message: "Creado", id: data.id, data });
 
     } catch (error) {
+        console.error(" Error:", error); 
         if (error.message === "NOT_FOUND") {
             return res.status(400).json({ error: "Error" });
         }
-        res.status(500).json({ error: "Error al crear pedido" });
+        res.status(500).json({ error: "Error al crear pedido", detail: error.message });
     }
 };
 
