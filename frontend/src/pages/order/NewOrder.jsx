@@ -21,7 +21,7 @@ export function NewOrder() {
 
     const handleGeneratedOrder = () => { // Función para generar el pedido
         const generated = order.map(o => ({
-            id: o.id,
+                        
             name: o.name,
             quantity: (o.quantity || 0)
 
@@ -31,7 +31,7 @@ export function NewOrder() {
     };
 
     const handleSendOrder = async () => {
-        
+
         const response = await fetch('api/v1/orders', {
             method: "POST",
             headers: {

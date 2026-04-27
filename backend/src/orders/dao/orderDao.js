@@ -9,7 +9,7 @@ export const getById = async (id) => {
 };
 
 export const createOrder = async (data) => {
-    const result =  await db('orders').insert(data).returning('id');
+    const result =  await db('orders').insert(data).returning('*');
 
     if (typeof result[0] === "object" && "id" in result[0]) {
         return result[0].id;
