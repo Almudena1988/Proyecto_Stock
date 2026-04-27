@@ -15,8 +15,13 @@ import { Toaster, sileo } from "sileo";
 export function Productos() {
     const [productos, setProductos] = useState([]);
     const [productoEditando, setProductoEditando] = useState(null);
-    const [productoCreando, setProductoCreando] = useState(false); //En false no muestra el formulario
+    // useState(true/false) se puede utilizar para manejar cosas como:
+    // Mostrar/ocultar formularios
+    // Abrir/cerrar modales
+    // Mostrar menús desplegables
+    // Activar/desactivar elementos
 
+    const [productoCreando, setProductoCreando] = useState(false); //En false no muestra el formulario
     const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
@@ -44,7 +49,7 @@ export function Productos() {
 
             if (response.ok) {
                 console.log("Producto eliminado");
-                sileo.success({ title: "Producto eliminado"})
+                sileo.success({ title: "Producto eliminado" })
 
 
                 // Actualiza sin recargar
@@ -145,6 +150,7 @@ export function Productos() {
                 <ModificarProducto {...productoEditando} />)}
             {/* Añadir */}
             <div>
+                {/* Si productoCreando es true, renderiza <CrearProducto /> */}
                 {productoCreando && (<CrearProducto />)}
             </div>
 
