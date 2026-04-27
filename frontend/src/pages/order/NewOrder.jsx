@@ -5,7 +5,7 @@ import { ConvertirPDF } from "../Pdf";
 export function NewOrder() {
 
     const [order, setOrder] = useState([]); // Lo que viene de la API
-    const [newOrder, setNewOrder] = useState([]); // Datos modificados para el PDF
+    const [newOrders, setNewOrder] = useState([]); // Datos modificados para el PDF
     const [generated, setGenerated] = useState(false); // Para que muestre o no el botón de "Imprimir pedido en PDF"
 
 
@@ -29,6 +29,21 @@ export function NewOrder() {
         setNewOrder(generated) // Se guarda el pedido 
         setGenerated(true); // Una vez se genera el pedido se muestra el botón de Imprimir pedido
     };
+
+    const handleSendOrder = async () => {
+        
+        const response = await fetch('api/v1/orders', {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(newOrders)
+
+        });
+        const data = await response.json();
+        console.log("Pedido guardado", data)
+
+    }
 
     return (
 
@@ -55,9 +70,9 @@ export function NewOrder() {
                                     min="0"
                                     value={o.quantity || ""}
                                     onChange={(e) => {
-                                        // Se recorre todos los producto 
+                                        // Se recorre todos los productos
                                         const updated = order.map(item =>
-                                            //cambia el que coicide con el ID
+                                            //cambia el que coincide con el ID
                                             item.id === o.id
                                                 ? { ...item, quantity: Number(e.target.value) }
                                                 : item
@@ -76,13 +91,13 @@ export function NewOrder() {
             </table>
 
             <div>
-                <button onClick={handleGeneratedOrder} type="button">
+                <button onClick={() => { handleGeneratedOrder(); handleSendOrder() }} type="button">
                     Generar pedido
                 </button>
 
-                {generated && newOrder.length > 0 && (
+                {generated && newOrders.length > 0 && (
                     <PDFDownloadLink
-                        document={<ConvertirPDF data={newOrder} />}
+                        document={<ConvertirPDF data={newOrders} />}
                         fileName="pedido.pdf">
 
                         {({ loading }) =>
@@ -91,10 +106,12 @@ export function NewOrder() {
                     </PDFDownloadLink>
                 )}
             </div>
-
-
         </div>
     );
+
 }
+
+
+
 
 

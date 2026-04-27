@@ -19,8 +19,8 @@ export function Pedido() {
                 pedido.map((p) => (
                     <div key={p.id} >
                         <p><strong>Pedido: {p.id} </strong> </p>
-                        <p>Fecha del pedido: {p.order_date} </p>
-                        <p>Estado del pedido: {p.status}</p>
+                        <p>{p.name} </p>
+                        <p>{p.quantity}</p>
                     </div>
                 ))
             ) : (<p> Cargando pedido</p>)}
