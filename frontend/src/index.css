@@ -2,11 +2,13 @@
 root. Estilos generales reutilizables */
 
 
-#root {  
+#root,
+html,
+body {
   max-width: 100%;
-  margin: 0 auto; 
+  margin: 0 auto;
+  min-height: 100vh;
 }
-.login {
-  background-color: #93b0bb;
-}
+
+
 

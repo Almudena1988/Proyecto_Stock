@@ -31,37 +31,47 @@ export function Login() {
     };
 
     return (
-        <body className='login'>
-            <div className='inicio-sesion'>
-                <h3 className='titulo'> Inicio de sesión</h3>
+        <div className='login'>
 
-            </div>
-            <div className='inicio'>
-                <h3>Usuario:</h3>
+            <h3> Inicio de sesión</h3>
+
+            <h3>Usuario:</h3>
+            <div className='pass-container'>
                 <input
-                    className='usuario'
+
                     type="text"
                     placeholder='Introduce el nombre de usuario'
                     onChange={(e) => setUsername(e.target.value)} />
+            </div>
 
-                <h3>Contraseña:</h3>
+            <h3>Contraseña:</h3>
+            <div>
                 <input
-                    className='pass'
+
                     type={showPassword ? 'text' : 'password'}
                     placeholder='Introduce la contraseña'
                     onChange={(e) => setPassword(e.target.value)} />
+
+
                 <Icon
+                    className='hide-show-pass'
                     icon={showPassword ? "eye-off" : "eye-open"}
                     onClick={() => setShowPassword(!showPassword)}
                     style={{ cursor: "pointer" }} />
-
-                <br /><br />
-                <button className='entrar' onClick={handleLogin}>Entrar</button>
-
-                <p>{mensaje}</p>
             </div>
+            <br /><br />
 
-        </body>
+            <button
+                style={{ cursor: "pointer" }}
+                className='enter-button'
+                onClick={handleLogin}>
+                Entrar
+            </button>
+
+            <p>{mensaje}</p>
+        </div>
+
+
     );
 }
 

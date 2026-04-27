@@ -1,28 +1,25 @@
 /* Se usa para estilos específicos del componente App.jsx. Normalmente incluye:
 Layout principal, contenedor de la app, estilos de la estructura base, cosas que solo usa App */
 
-.usuario,
-.pass {
-  width: 220px;
-  padding: 6px;
+.login {
+
+  display: grid;
   justify-content: center;
-  background-color: rgb(228, 225, 231);
 }
 
-.inicio, .inicio-sesion {
-  justify-content: center; 
-  padding: 20px;  
-  display: grid;   
+.hide-show-pass {
+  padding-left: 5px;
 }
 
-.entrar{
-  margin-top: 12px;
-  font-size: 20px;
+.enter-button {
+  margin: 10px;
+  border:12px;
+  border-radius: 12px;
+  padding: 10px;
+  width: 70px;
+  
+}
 
-}
-.pass {
-  text-align: center;
-}
 
 .navbar {
   position: fixed;
@@ -58,7 +55,7 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 }
 
 .light {
-  background-color: white;
+
   color: black;
   min-height: 100vh;
 }
@@ -74,7 +71,7 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   top: 60px;
   left: 0;
   width: 200px;
-  height:fit-content;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -83,5 +80,5 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 
 .opcion {
   margin-top: 20px;
-  font-size: 20px ;
+  font-size: 20px;
 }

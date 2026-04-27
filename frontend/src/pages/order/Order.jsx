@@ -14,16 +14,27 @@ export function Pedido() {
     return (
         <div>
             <h2>Hoja de pedido</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id producto:</th>
+                        <th>Nombre:</th>
+                        <th>Cantidad:</th>
+                    </tr>
+                </thead>
 
-            {pedido.length > 0 ? (
-                pedido.map((p) => (
-                    <div key={p.id} >
-                        <p><strong>Pedido: {p.id} </strong> </p>
-                        <p>{p.name} </p>
-                        <p>{p.quantity}</p>
-                    </div>
-                ))
-            ) : (<p> Cargando pedido</p>)}
+                <tbody>
+                    {pedido.map((p) => (
+
+                        <tr key={p.id}>                            
+                                <td>{p.id}</td>
+                                <td>{p.name}</td>
+                                <td>{p.quantity}</td>                            
+                        </tr>
+                    ))}
+
+                </tbody>
+            </table>
 
         </div>
     );
