@@ -38,7 +38,7 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   border: 12px;
   border-radius: 12px;
   padding: 6px;
-  width: 220px;
+  width: 230px;
   background-color: rgb(18, 159, 18);
   color: rgb(253, 251, 248);
   font-size: larger;
@@ -46,14 +46,14 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 
 .user-input {
 
-  width: 220px;
+  width: 230px;
   padding: 5px;
   border-radius: 7px;
 
 }
 
 .pass-input {
-  width: 220px;
+  width: 230px;
   padding: 4px;
   padding-right: 35px;
   border-radius: 7px;

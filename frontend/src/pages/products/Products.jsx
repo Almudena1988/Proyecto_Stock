@@ -93,13 +93,13 @@ export function Productos() {
                                     <td>{p.supplier_id}</td>
                                     <td>
                                         {/* Editar */}
-                                        <button onClick={() => setProductoEditando(p)}>
+                                        <Button size="small" variant="contained" color="success" onClick={() => setProductoEditando(p)}>
                                             Modificar
-                                        </button>
+                                        </Button>
                                     </td>
                                     <td>
                                         {/* Borrar */}
-                                        <Button onClick={handleClickOpen}> Eliminar </Button>
+                                        <Button size="small" variant="contained" color="success" onClick={handleClickOpen}> Eliminar </Button>
                                         <Dialog open={open} onClose={handleClose}>
                                             <DialogTitle id="dialog-title">{"Mensaje"}</DialogTitle>
 
@@ -136,9 +136,9 @@ export function Productos() {
             <div>
                 {/* Añadir */}
                 {/*Se inicializa la función en true para mostrar el formulario */}
-                <button onClick={() => setProductoCreando(true)}>
+                <Button size="small" variant="contained" color="success" onClick={() => setProductoCreando(true)}>
                     Añadir producto nuevo
-                </button>
+                </Button>
 
             </div>
 
