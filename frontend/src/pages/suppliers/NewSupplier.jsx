@@ -59,7 +59,7 @@ export function NewSupplier() {
                     onChange={(event) => setNewAddres(event.target.value)}
 
                 />
-                <button type="submit">Añadir</button>
+                <Button size="small" variant="contained" color="success" type="submit">Añadir</Button>
             </form>
 
         </div>

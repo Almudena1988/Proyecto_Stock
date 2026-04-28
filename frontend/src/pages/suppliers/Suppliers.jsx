@@ -46,7 +46,7 @@ export function Proveedores() { // Se define el componente
 
             if (response.ok) {
                 console.log("Proveedor eliminado")
-                sileo.error({ title: "Proveedor eliminado"})
+                sileo.error({ title: "Proveedor eliminado" })
 
                 //Recarga la página automáticamente
                 setProveedores(previa =>
@@ -83,10 +83,18 @@ export function Proveedores() { // Se define el componente
                             <td>{p.address}</td>
                             <td>{p.created_at}</td>
                             <td>
-                                <button onClick={() => setNuevoProveedor(p)}>Modificar</button>
+                                <Button
+                                    size="small"
+                                    variant="contained"
+                                    color="success"
+                                    onClick={() => setNuevoProveedor(p)}>Modificar</Button>
                             </td>
                             <td>
-                                <Button onClick={handleClickOpen}> Eliminar</Button>
+                                <Button
+                                    size="small"
+                                    variant="contained"
+                                    color="success"
+                                    onClick={handleClickOpen}> Eliminar</Button>
                                 <Dialog
                                     open={open}
                                     onClose={handleClose}
@@ -122,7 +130,7 @@ export function Proveedores() { // Se define el componente
             </table>
             <div>
                 {/* Añadir*/}
-                <button onClick={() => setNuevoProveedor(true)}>Añadir Proveedor</button>
+                <Button size="small" variant="contained" color="success" onClick={() => setNuevoProveedor(true)}>Añadir Proveedor</Button>
             </div>
             <div>
                 {/* Editar */}

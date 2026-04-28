@@ -20,8 +20,7 @@ export function NewOrder() {
     }, []); // Se renderiza solo cuando recarga la página
 
     const handleGeneratedOrder = () => { // Función para generar el pedido
-        const generated = order.map(o => ({
-                        
+        const generated = order.map(o => ({                        
             name: o.name,
             quantity: (o.quantity || 0)
 
