@@ -87,7 +87,7 @@ export function Proveedores() { // Se define el componente
                                     size="small"
                                     variant="contained"
                                     color="success"
-                                    onClick={() => setNuevoProveedor(p)}>Modificar</Button>
+                                    onClick={() => setProveedorEdit(p)}>Modificar</Button>
                             </td>
                             <td>
                                 <Button
@@ -134,12 +134,13 @@ export function Proveedores() { // Se define el componente
             </div>
             <div>
                 {/* Editar */}
-                {proveedorEdit && (<UpdateSupplier {...setProveedorEdit} />)}
+                {proveedorEdit && (<UpdateSupplier {...proveedorEdit}
+                 setProveedorEdit={setProveedorEdit} />)}
             </div>
 
             {/* Añadir */}
             <div>
-                {nuevoProveedor && (<NewSupplier />)}
+                {nuevoProveedor && (<NewSupplier setNuevoProveedor={setNuevoProveedor}/>)}
             </div>
 
 

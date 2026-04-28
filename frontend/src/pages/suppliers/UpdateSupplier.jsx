@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Toaster, sileo } from "sileo";
+import Button from '@mui/material/Button';
 
 export function UpdateSupplier({
     id,
     name,
     email,
     address,
-    created_at
+    created_at,
+    setProveedorEdit
 }) {
     const [new_id, setNewId] = useState(id);
     const [new_name, setNewName] = useState(name);
@@ -35,14 +37,15 @@ export function UpdateSupplier({
 
             if (response.ok) {
                 console.log("Datos del proveedor actualizados")
-                sileo.success({ title: "Nuevo proveedor añadido"})
+                sileo.success({ title: "Datos de proveedor actualizado" })
+                setProveedorEdit(null);
             } else {
                 console.log("Status: ", response.status)
                 console.log("Body: ", data)
             }
 
         } catch (error) {
-            console.log("Error al añadir proveedor")
+            console.log("Error al actulizar datos del proveedor")
         }
     }
 
@@ -53,7 +56,7 @@ export function UpdateSupplier({
             <input type="email" value={new_email} onChange={(e) => setNewEmail(e.target.value)} />
             <input value={new_address} onChange={(e) => setNewAddress(e.target.value)} />
             <input value={new_created_at} onChange={(e) => setNewCreatedAt(e.target.value)} />
-            <button onChange={handleEdit}>Guardar cambios</button>
+            <Button size="small" variant="contained" color="success" onClick={handleEdit}>Guardar cambios</Button>
         </div>
     )
 }

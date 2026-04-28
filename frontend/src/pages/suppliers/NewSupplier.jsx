@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Toaster, sileo } from "sileo";
+import Button from '@mui/material/Button';
 
-export function NewSupplier() {
+export function NewSupplier({ setNuevoProveedor }) {
 
     const [name, setNewName] = useState("");
     const [email, setNewEmail] = useState("");
@@ -28,6 +29,7 @@ export function NewSupplier() {
             if (response.ok) {
                 console.log("Proveedor añadido")
                 sileo.success({ title: "Nuevo proveedor añadido"})
+                setNuevoProveedor(false);
                 
             } else {
                 console.log("Status: ", response.status)
