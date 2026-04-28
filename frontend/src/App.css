@@ -6,7 +6,6 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   justify-content: center;  
 }
 
-
 .hide-show-pass {
   padding-left: 5px;
   position: absolute; /* Necesita un position:relative padre sobre el que posicionarse*/
@@ -105,7 +104,7 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 }
 
 .dark {
-  background-color: #121212;
+  background-color: #434040;
   color: rgb(216, 193, 193);
   min-height: 100vh;
 }
