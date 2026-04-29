@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom"; // Sirve para renderizar rutas hijas dentro de este layout.
 import { Icon, NavbarDivider, NavbarGroup, Navbar } from '@blueprintjs/core'
 import { useState } from 'react';
 import { Link } from "react-router-dom";
@@ -16,14 +16,24 @@ export function NavBar({ darkMode, setDarkMode }) {
                     <h2> LabStock <span style={{ color: "green" }}>Control</span></h2>
                 </div>
 
-                <NavbarDivider />
-                <div>
-                    <Link to="/" className="icons"> <Icon icon="home" size={20} /> </Link>
-                    <Icon className="icons" icon="contrast" size={20} onClick={() => setDarkMode(!darkMode)} />
+                <NavbarDivider className="navbar-divider" />
+                
+                <div className="navbar-icon">
+                    <Link to="/" className="home-icon"> <Icon icon="home" size={20} /> </Link>
 
-                    {/* onClick solo ejecuta funciones*/}
+                    <Icon className="mode-icon" 
+                    icon="contrast" 
+                    style={{ cursor: "pointer" }} 
+                    size={20} 
+                    onClick={() => setDarkMode(!darkMode)} />
+
+                    {/* onClick siempre recibe una función. Esa función puede:
+                    cambiar de estado, llamar funciones*/}
                     <button onClick={() => setOpen(true)}>
-                        <Icon className="icons" icon="help" size={20} />
+                        <Icon className="help-icon" 
+                        icon="help" 
+                        size={20} 
+                        style={{ cursor: "pointer" }} />
                     </button>
 
                     <HelpIcon open={open}
@@ -33,7 +43,7 @@ export function NavBar({ darkMode, setDarkMode }) {
             </NavbarGroup>
 
             <div>
-                <Outlet />
+                <Outlet /> {/* React Router renderiza las rutas hijas*/}
             </div>
         </div>
     );
