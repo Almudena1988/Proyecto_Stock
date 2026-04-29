@@ -16,10 +16,10 @@ export function Proveedores() { // Se define el componente
     // useState: Para manejar estado (datos que cambian). Se empieza con un array vacío
     // proveedores: estado
     // setProveedores: función para actualizar el estado
+
     const [proveedores, setProveedores] = useState([]);  // Es el estado inicial 
     const [nuevoProveedor, setNuevoProveedor] = useState(false);
     const [proveedorEdit, setProveedorEdit] = useState(null);
-
     const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
@@ -93,7 +93,7 @@ export function Proveedores() { // Se define el componente
                                 <Button
                                     size="small"
                                     variant="contained"
-                                    color="success"
+                                    color='success'
                                     onClick={handleClickOpen}> Eliminar</Button>
                                 <Dialog
                                     open={open}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Toaster, sileo } from "sileo";
+import Button from '@mui/material/Button';
 
 export function CrearProducto(setProductoCreando) {
 
@@ -79,7 +80,7 @@ export function CrearProducto(setProductoCreando) {
                 value={supplier_id}
                 onChange={(e) => setSupplierId(e.target.value)}
             />
-            <button type="submit">Añadir</button>
+            <Button size="small" variant="contained" color="success" type="submit">Añadir</Button>
         </form>
     );
 }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Toaster, sileo } from "sileo";
+import Button from '@mui/material/Button';
 
 // El componente de React recibe los props desde fuera
 export function ModificarProducto({
@@ -64,9 +65,9 @@ export function ModificarProducto({
             <input value={new_stock_minimum} onChange={(e) => setStockMinimum(e.target.value)} />
             <input value={new_supplier_id} onChange={(e) => setSupplierId(e.target.value)} />
 
-            <button onClick={handleEdit}>
+            <Button size="small" variant="contained" color="success" onClick={handleEdit}>
                 Guardar cambios
-            </button>
+            </Button>
         </div>
     );
 }

@@ -18,7 +18,6 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 .user-container {
   padding-top: 12px;
   padding-bottom: 12px;
-
 }
 
 .pass-container {
@@ -26,7 +25,6 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   padding-bottom: 12px;
   position: relative
     /* Cualquier elemento con position:absolute se va a posicionar respecto de éste*/
-
 }
 
 .welcome-container {
@@ -50,7 +48,6 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   width: 230px;
   padding: 5px;
   border-radius: 7px;
-
 }
 
 .pass-input {
@@ -74,8 +71,6 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   z-index: 1000;
 }
 
-.navbar-divider {}
-
 .navbar-group {
   position: absolute;
   top: 0px;
@@ -90,10 +85,33 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   
 }
 
+.navbar-divider{
+  margin-left: 450px;
+}
+
+.main-container{
+  display: flex;
+  flex-direction: row;  
+ 
+}
+.routes{
+  margin-left: 100px;
+  display: flex;
+  gap: 50px;  
+}
+
+
 .textonavbar {
   display: flex;
   margin: 12px;
   padding: 20px;
+}
+
+.link{
+  font-family:Verdana, Tahoma, sans-serif;
+  font-size: 14px;
+  color: #0f0f0f;
+  
 }
 
 .texto,
@@ -106,7 +124,6 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   border-radius: 12px;
   transition: background-color 0.5s ease;
   background-color: white;
-
 }
 
 .home-icon:hover, .mode-icon:hover, .help-icon:hover {
@@ -116,11 +133,9 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 .help-icon {
   background: white;
   border: none;
-
 }
 
 .light {
-
   color: black;
   min-height: 100vh;
 }
@@ -137,7 +152,6 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   display: flex;
   flex-direction: column;
   padding: 20px;
-
 }
 
 .opcion {
@@ -148,4 +162,10 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 .layout {
   display: flex;
   padding-top: 70px;
+}
+
+.pdf-button{
+  margin-left: 5px;
+  background-color: #434040;
+  font-size: large;
 }

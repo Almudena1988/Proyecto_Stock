@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import { ConvertirPDF } from "../Pdf";
+import Button from '@mui/material/Button';
 
 export function NewOrder() {
 
@@ -20,7 +21,7 @@ export function NewOrder() {
     }, []); // Se renderiza solo cuando recarga la página
 
     const handleGeneratedOrder = () => { // Función para generar el pedido
-        const generated = order.map(o => ({                        
+        const generated = order.map(o => ({
             name: o.name,
             quantity: (o.quantity || 0)
 
@@ -90,9 +91,16 @@ export function NewOrder() {
             </table>
 
             <div>
-                <button onClick={() => { handleGeneratedOrder(); handleSendOrder() }} type="button">
+                <Button
+                    size="small"
+                    variant="contained"
+                    color="success" 
+                    onClick={() => { handleGeneratedOrder(); handleSendOrder() }}
+                    type="button">
+
                     Generar pedido
-                </button>
+
+                </Button>
 
                 {generated && newOrders.length > 0 && (
                     <PDFDownloadLink
@@ -100,7 +108,17 @@ export function NewOrder() {
                         fileName="pedido.pdf">
 
                         {({ loading }) =>
-                            loading ? <button>"Generando PDF..." </button> : <button>Imprimir pedido en PDF</button>
+                            loading ? <button className="pdf-button">"Generando PDF..." </button> :
+
+                                <Button
+                                   
+                                    size="small"
+                                    variant="contained"
+                                    color="success">
+
+                                    Imprimir pedido en PDF
+
+                                </Button>
                         }
                     </PDFDownloadLink>
                 )}
