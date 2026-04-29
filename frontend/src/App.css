@@ -3,12 +3,13 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 
 .login {
   display: grid;
-  justify-content: center;  
+  justify-content: center;
 }
 
 .hide-show-pass {
   padding-left: 5px;
-  position: absolute; /* Necesita un position:relative padre sobre el que posicionarse*/
+  position: absolute;
+  /* Necesita un position:relative padre sobre el que posicionarse*/
   top: 50%;
   right: 14px;
   transform: translateY(-50%)
@@ -23,7 +24,8 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 .pass-container {
   padding-top: 12px;
   padding-bottom: 12px;
-  position: relative /* Cualquier elemento con position:absolute se va a posicionar respecto de éste*/
+  position: relative
+    /* Cualquier elemento con position:absolute se va a posicionar respecto de éste*/
 
 }
 
@@ -61,7 +63,6 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 .remember-input {
   padding-top: 2px;
   padding-bottom: 12px;
-
 }
 
 .navbar {
@@ -69,15 +70,24 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   top: 0px;
   left: 0px;
   width: 100%;
-  display: flex;  
+  display: flex;
   z-index: 1000;
-  background-color: white;
 }
 
-.navbar-group{
+.navbar-divider {}
+
+.navbar-group {
   position: absolute;
   top: 0px;
   z-index: 1000;
+}
+
+.navbar-icon {
+  display: flex; /* permite alinear elementos dentro de un contenedor, ya sea en filas o columnas */  
+  flex-direction: row; /* Dirección de los elementos (filas=>horizontal) */  
+  align-items: center;
+  gap: 18px; /* Propiedad de FlexBox y Grid que define el espacio entre filas y columnas*/
+  
 }
 
 .textonavbar {
@@ -91,15 +101,21 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   padding: 15px;
 }
 
-.icons {
+.home-icon, .mode-icon, .help-icon {
   padding: 10px;
-  background-color: white;
+  border-radius: 12px;
   transition: background-color 0.5s ease;
+  background-color: white;
+
 }
 
-.icons:hover {
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-  border-radius: 12px;
+.home-icon:hover, .mode-icon:hover, .help-icon:hover {
+  background-color: #e2dada; 
+
+}
+.help-icon {
+  background: white;
+  border: none;
 
 }
 
@@ -115,19 +131,20 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   min-height: 100vh;
 }
 
-.lateral { 
+.lateral {
   width: 200px;
   height: fit-content;
   display: flex;
   flex-direction: column;
   padding: 20px;
-  background-color: rgb(255, 255, 255);
+
 }
 
 .opcion {
   margin-top: 20px;
   font-size: 20px;
 }
+
 .layout {
   display: flex;
   padding-top: 70px;
