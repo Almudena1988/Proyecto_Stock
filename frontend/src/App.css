@@ -65,12 +65,18 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 }
 
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
+  top: 0px;
+  left: 0px;
   width: 100%;
-  display: flex;
-  padding: 20px;
+  display: flex;  
+  z-index: 1000;
+  background-color: white;
+}
+
+.navbar-group{
+  position: absolute;
+  top: 0px;
   z-index: 1000;
 }
 
@@ -109,19 +115,20 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   min-height: 100vh;
 }
 
-.lateral {
-  position: fixed;
-  top: 60px;
-  left: 0;
+.lateral { 
   width: 200px;
   height: fit-content;
   display: flex;
   flex-direction: column;
   padding: 20px;
-  background-color: rgb(197, 229, 229);
+  background-color: rgb(255, 255, 255);
 }
 
 .opcion {
   margin-top: 20px;
   font-size: 20px;
+}
+.layout {
+  display: flex;
+  padding-top: 70px;
 }

@@ -13,6 +13,7 @@ import { Productos } from './pages/products/Products';
 import { Pedido } from './pages/order/Order'
 import { NewOrder } from './pages/order/NewOrder';
 import { CrearProducto } from './pages/products/NewProduct';
+import { NavBar } from './pages/NavBar';
 
 
 
@@ -25,17 +26,17 @@ function App() {
     <div className={darkMode ? "dark" : "light"}>
 
       <Routes>
-        
-        <Route path="/" element={<Login />} />
-        <Route path="/home" element={<Menu darkMode={darkMode} setDarkMode={setDarkMode} />} />
-        <Route path="/proveedores" element={<Proveedores />} />
-        <Route path="/productos" element={<Productos />} />
-        <Route path="/pedido" element={<Pedido />} />
-        <Route path="/new" element={<NewOrder />} />
-        <Route path="/newproduct" element={<CrearProducto />} />
-       
-
+        <Route element={<NavBar darkMode={darkMode} setDarkMode={setDarkMode} />}>
+          <Route path="/" element={<Login />} />         
+          <Route path="/home" element={<Menu darkMode={darkMode} setDarkMode={setDarkMode} />} />
+          <Route path="/proveedores" element={<Proveedores />} />
+          <Route path="/productos" element={<Productos />} />
+          <Route path="/pedido" element={<Pedido />} />
+          <Route path="/new" element={<NewOrder />} />
+          <Route path="/newproduct" element={<CrearProducto />} />
+        </Route>
       </Routes>
+
     </div>
 
   )
