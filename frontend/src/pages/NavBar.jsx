@@ -15,7 +15,7 @@ export function NavBar({ darkMode, setDarkMode }) {
             <NavbarGroup className="navbar-group">
 
                 <div className="textonavbar" >
-                    <h2> LabStock <span style={{ color: "green" }}>Control</span></h2>
+                    <h2> Lab<span style={{ color: "green" }}>Stock </span>Control</h2>
                 </div>
 
                 <div className="routes">

@@ -35,7 +35,7 @@ export function Login() {
         <div className='login'>
 
             <div>
-                <h1> LabStock <span style={{ color: "green" }}>Control</span></h1>
+                <h1> Lab<span style={{ color: "green" }}>Stock </span>Control</h1>
                 <p>Sistema de gestión de inventario</p>
             </div>
             <div className='welcome-container'>

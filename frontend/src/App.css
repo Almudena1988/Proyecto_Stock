@@ -92,10 +92,16 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   padding: 20px;
 }
 
+.link {
+  
+ 
+}
+
 .routes{
   margin-left: 100px;
   display: flex;
   gap: 50px;  
+ 
 }
 
 .navbar-divider{
@@ -163,16 +169,38 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   border-radius: 2px;   
 }
 
-.tr-data:nth-of-type(even){
-   background-color: #eae3e3;
+.light .tr-data:nth-of-type(even){
+  background-color: #eae3e3;
 }
+
+.light .table.table-button{
+    background-color: #434040;
+}
+
+.dark .tr-data:nth-of-type(even){
+  background-color: #434040;
+}
+
+.dark .table-button{
+  background-color: #434040;
+}
+
+
 
 .table-data{  
   padding: 12px 15px;
-}
+}  
 
 .table-button{
   background-color: white;
+}
+
+.table-head-data-new-order, .table-data-new-order{
+ text-align: left;
+ border-radius: 2px;
+ padding: 8px;
+ border-bottom: solid 1px #434040;
+
 }
 
 
@@ -183,6 +211,12 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   margin-left: 5px;
   background-color: #434040;
   font-size: large;
+}
+
+/* -----Css para Nuevo Pedido----- */
+
+.table-new-order{
+  margin: 50px;
 }
 
 
@@ -196,10 +230,6 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   color: #0f0f0f;  
 }
 
-.opcion {
-  margin-top: 20px;
-  font-size: 20px;
-}
 
 
 

@@ -5,9 +5,9 @@ export const ConvertirPDF = ({ data }) => {
     const styles = StyleSheet.create({
         page: {
             backgroundColor: "#ffffff",
-            fontSize: "18px"                  
+            fontSize: "18px"
 
-        },        
+        },
     });
 
     return (
@@ -21,7 +21,7 @@ export const ConvertirPDF = ({ data }) => {
                 </View>
                 <View>
                     {data.map((item) => (
-                        <Text style={{margin: "15px"}} key={item.id}>
+                        <Text style={{ margin: "15px" }} key={item.id}>
                             Item: [{item.id}] {item.name} - {item.quantity} unidades
                         </Text>
                     ))}

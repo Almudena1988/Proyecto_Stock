@@ -47,25 +47,25 @@ export function NewOrder() {
 
     return (
 
-        <div>
+        <div className="table-container">
             <h2> Pedido en curso: </h2>
-            <table>
-                <thead>
+            <table className="main-table">
+                <thead className="table-head">
                     <tr>
-                        <th>Producto </th>
-                        <th>Stock actual </th>
-                        <th>Stock Mínimo</th>
-                        <th>Cantidad</th>
+                        <th className="table-head-data-new-order">Producto </th>
+                        <th className="table-head-data-new-order">Stock actual </th>
+                        <th className="table-head-data-new-order">Stock Mínimo</th>
+                        <th className="table-head-data-new-order">Cantidad</th>
                     </tr>
                 </thead>
                 <tbody>
                     {order.length > 0 ? (
                         order.map((o) => (
-                            <tr key={o.id}>
-                                <td>{o.name}</td>
-                                <td>{o.stock_current}</td>
-                                <td>{o.stock_minimum}</td>
-                                <td><input
+                            <tr   key={o.id}>
+                                <td className="table-data-new-order">{o.name}</td>
+                                <td className="table-data-new-order">{o.stock_current}</td>
+                                <td className="table-data-new-order">{o.stock_minimum}</td>
+                                <td className="table-data-new-order"><input
                                     type="number"
                                     min="0"
                                     value={o.quantity || ""}
