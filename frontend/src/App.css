@@ -24,7 +24,7 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   padding-top: 12px;
   padding-bottom: 12px;
   position: relative
-    /* Cualquier elemento con position:absolute se va a posicionar respecto de éste*/
+  /* Cualquier elemento con position:absolute se va a posicionar respecto de éste*/
 }
 
 .welcome-container {
@@ -108,7 +108,7 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 }
 
 .link{
-  font-family:Verdana, Tahoma, sans-serif;
+  font-family:"helvetica neue", helvetica, arial, sans-serif;
   font-size: 14px;
   color: #0f0f0f;
   
@@ -169,3 +169,39 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   background-color: #434040;
   font-size: large;
 }
+.table-container{
+  margin: 50px
+ 
+}
+.main-table{
+  border-collapse: collapse;
+  font-size: 0.9em;
+  margin-bottom: 20px;
+  margin-right: 10px; 
+  
+  
+}
+.table-head{
+  text-align: left;
+  border-radius: 8px;
+}
+
+.table-head-data { 
+  background-color:#2b8340;
+  color:white;
+  text-align: left;
+  border-radius: 2px;  
+  
+}
+
+.table-data{  
+  padding: 12px 15px;
+}
+
+.tr-data:nth-of-type(even){
+   background-color: #eae3e3;
+}
+
+.table-button{
+  background-color: white;}
+

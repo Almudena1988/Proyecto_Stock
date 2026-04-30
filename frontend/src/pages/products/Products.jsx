@@ -67,37 +67,37 @@ export function Productos() {
     };
 
     return (
-        <div>
+        <div className="table-container">
             <div>
                 <h2>Productos</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Id producto</th>
-                            <th>Descripción</th>
-                            <th>Stock actual</th>
-                            <th>Stock mínimo</th>
-                            <th>Id proveedor</th>
+                <table className="main-table" >
+                    <thead className="table-head">
+                        <tr  >
+                            <th className="table-head-data">Nombre</th>
+                            <th className="table-head-data">Id producto</th>
+                            <th className="table-head-data">Descripción</th>
+                            <th className="table-head-data">Stock actual</th>
+                            <th className="table-head-data">Stock mínimo</th>
+                            <th className="table-head-data">Id proveedor</th>
                         </tr>
                     </thead>
                     <tbody>
                         {productos.length > 0 ? (
                             productos.map((p) => (
-                                <tr key={p.id}>
-                                    <td>{p.name}</td>
-                                    <td>{p.id} </td>
-                                    <td>{p.description}</td>
-                                    <td>{p.stock_current}</td>
-                                    <td>{p.stock_minimum}</td>
-                                    <td>{p.supplier_id}</td>
-                                    <td>
+                                <tr className="tr-data" key={p.id}>
+                                    <td className="table-data">{p.name}</td>
+                                    <td className="table-data">{p.id} </td>
+                                    <td className="table-data">{p.description}</td>
+                                    <td className="table-data">{p.stock_current}</td>
+                                    <td className="table-data">{p.stock_minimum}</td>
+                                    <td className="table-data">{p.supplier_id}</td>
+                                    <td className="table-button">
                                         {/* Editar */}
                                         <Button size="small" variant="contained" color="success" onClick={() => setProductoEditando(p)}>
                                             Modificar
                                         </Button>
                                     </td>
-                                    <td>
+                                    <td className="table-button">
                                         {/* Borrar */}
                                         <Button size="small" variant="contained" color="success" onClick={handleClickOpen}> Eliminar </Button>
                                         <Dialog open={open} onClose={handleClose}>

@@ -62,34 +62,34 @@ export function Proveedores() { // Se define el componente
     }
     // Empieza lo que el componente muestra por pantalla, lo que renderiza
     return (
-        <div>
+        <div className="table-container">
             <h2>Proveedores</h2>
-            <table>
+            <table className="main-table">
                 <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Id proveedor</th>
-                        <th>Email</th>
-                        <th>Dirección</th>
-                        <th>Fecha de creación</th>
+                    <tr >
+                        <th className="table-head-data">Nombre</th>
+                        <th className="table-head-data">Id proveedor</th>
+                        <th className="table-head-data">Email</th>
+                        <th className="table-head-data">Dirección</th>
+                        <th className="table-head-data">Fecha de creación</th>
                     </tr>
                 </thead>
                 <tbody>
                     {proveedores.length > 0 ? (proveedores.map((p) => (
-                        <tr key={p.id}>
-                            <td>{p.name}</td>
-                            <td>{p.id}</td>
-                            <td>{p.email}</td>
-                            <td>{p.address}</td>
-                            <td>{p.created_at}</td>
-                            <td>
+                        <tr className="tr-data" key={p.id}>
+                            <td className="table-data">{p.name}</td>
+                            <td className="table-data">{p.id}</td>
+                            <td className="table-data">{p.email}</td>
+                            <td className="table-data">{p.address}</td>
+                            <td className="table-data">{p.created_at}</td>
+                            <td className="table-button">
                                 <Button
                                     size="small"
                                     variant="contained"
                                     color="success"
                                     onClick={() => setProveedorEdit(p)}>Modificar</Button>
                             </td>
-                            <td>
+                            <td className="table-button">
                                 <Button
                                     size="small"
                                     variant="contained"
