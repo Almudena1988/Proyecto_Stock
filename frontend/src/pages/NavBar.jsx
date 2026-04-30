@@ -32,8 +32,7 @@ export function NavBar({ darkMode, setDarkMode }) {
                     <Link to="/" className="home-icon"> <Icon icon="home" size={20}  color='black' /> </Link>
 
                     <Icon className="mode-icon"
-                        icon="contrast"
-                       
+                        icon="contrast"                       
                         style={{ cursor: "pointer" }}
                         size={20}
                         onClick={() => setDarkMode(!darkMode)} />

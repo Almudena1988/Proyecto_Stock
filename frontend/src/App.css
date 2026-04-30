@@ -1,9 +1,42 @@
 /* Se usa para estilos específicos del componente App.jsx. Normalmente incluye:
 Layout principal, contenedor de la app, estilos de la estructura base, cosas que solo usa App */
 
+/* -----Página de Login-----*/
+
 .login {
   display: grid;
   justify-content: center;
+}
+
+.welcome-container {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.user-container {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.user-input {
+
+  width: 230px;
+  padding: 5px;
+  border-radius: 7px;
+}
+
+.pass-container {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  position: relative
+  /* Cualquier elemento con position:absolute se va a posicionar respecto de éste*/
+}
+
+.pass-input {
+  width: 230px;
+  padding: 4px;
+  padding-right: 35px;
+  border-radius: 7px;
 }
 
 .hide-show-pass {
@@ -15,21 +48,9 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   transform: translateY(-50%)
 }
 
-.user-container {
-  padding-top: 12px;
+.remember-input {
+  padding-top: 2px;
   padding-bottom: 12px;
-}
-
-.pass-container {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  position: relative
-  /* Cualquier elemento con position:absolute se va a posicionar respecto de éste*/
-}
-
-.welcome-container {
-  padding-bottom: 20px;
-  padding-top: 20px;
 }
 
 .enter-button {
@@ -41,25 +62,13 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   background-color: rgb(18, 159, 18);
   color: rgb(253, 251, 248);
   font-size: larger;
-}
+} 
 
-.user-input {
+/* -----Css para Navbar-----*/
 
-  width: 230px;
-  padding: 5px;
-  border-radius: 7px;
-}
-
-.pass-input {
-  width: 230px;
-  padding: 4px;
-  padding-right: 35px;
-  border-radius: 7px;
-}
-
-.remember-input {
-  padding-top: 2px;
-  padding-bottom: 12px;
+.main-container{
+  display: flex;
+  flex-direction: row;   
 }
 
 .navbar {
@@ -77,46 +86,27 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   z-index: 1000;
 }
 
-.navbar-icon {
-  display: flex; /* permite alinear elementos dentro de un contenedor, ya sea en filas o columnas */  
-  flex-direction: row; /* Dirección de los elementos (filas=>horizontal) */  
-  align-items: center;
-  gap: 18px; /* Propiedad de FlexBox y Grid que define el espacio entre filas y columnas*/
-  
-}
-
-.navbar-divider{
-  margin-left: 450px;
-}
-
-.main-container{
-  display: flex;
-  flex-direction: row;  
- 
-}
-.routes{
-  margin-left: 100px;
-  display: flex;
-  gap: 50px;  
-}
-
-
 .textonavbar {
   display: flex;
   margin: 12px;
   padding: 20px;
 }
 
-.link{
-  font-family:"helvetica neue", helvetica, arial, sans-serif;
-  font-size: 14px;
-  color: #0f0f0f;
-  
+.routes{
+  margin-left: 100px;
+  display: flex;
+  gap: 50px;  
 }
 
-.texto,
-.texto2 {
-  padding: 15px;
+.navbar-divider{
+  margin-left: 450px;
+}
+
+.navbar-icon {
+  display: flex; /* permite alinear elementos dentro de un contenedor, ya sea en filas o columnas */  
+  flex-direction: row; /* Dirección de los elementos (filas=>horizontal) */  
+  align-items: center;
+  gap: 18px; /* Propiedad de FlexBox y Grid que define el espacio entre filas y columnas*/
 }
 
 .home-icon, .mode-icon, .help-icon {
@@ -128,12 +118,14 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 
 .home-icon:hover, .mode-icon:hover, .help-icon:hover {
   background-color: #e2dada; 
-
 }
+
 .help-icon {
   background: white;
   border: none;
 }
+
+/* -----Css para Modo oscuro----- */
 
 .light {
   color: black;
@@ -146,41 +138,19 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   min-height: 100vh;
 }
 
-.lateral {
-  width: 200px;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-}
+/* -----Css para tablas de Productos, Proveedores, Pedido-----*/
 
-.opcion {
-  margin-top: 20px;
-  font-size: 20px;
-}
-
-.layout {
-  display: flex;
-  padding-top: 70px;
-}
-
-.pdf-button{
-  margin-left: 5px;
-  background-color: #434040;
-  font-size: large;
-}
 .table-container{
-  margin: 50px
- 
+  margin: 50px 
 }
+
 .main-table{
   border-collapse: collapse;
   font-size: 0.9em;
   margin-bottom: 20px;
-  margin-right: 10px; 
-  
-  
+  margin-right: 10px;   
 }
+
 .table-head{
   text-align: left;
   border-radius: 8px;
@@ -190,18 +160,59 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   background-color:#2b8340;
   color:white;
   text-align: left;
-  border-radius: 2px;  
-  
-}
-
-.table-data{  
-  padding: 12px 15px;
+  border-radius: 2px;   
 }
 
 .tr-data:nth-of-type(even){
    background-color: #eae3e3;
 }
 
+.table-data{  
+  padding: 12px 15px;
+}
+
 .table-button{
-  background-color: white;}
+  background-color: white;
+}
+
+
+/* -----Css para botón de PDF-----*/ 
+
+
+.pdf-button{
+  margin-left: 5px;
+  background-color: #434040;
+  font-size: large;
+}
+
+
+
+
+
+
+.link{
+  font-family:"helvetica neue", helvetica, arial, sans-serif;
+  font-size: 14px;
+  color: #0f0f0f;  
+}
+
+.opcion {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

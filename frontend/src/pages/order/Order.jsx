@@ -12,24 +12,24 @@ export function Pedido() {
     }, []);
 
     return (
-        <div>
+        <div className="table-container">
             <h2>Hoja de pedido</h2>
-            <table>
-                <thead>
+            <table className="main-table">
+                <thead className="table-head">
                     <tr>
-                        <th>Id producto:</th>
-                        <th>Nombre:</th>
-                        <th>Cantidad:</th>
+                        <th className="table-head-data">Id producto:</th>
+                        <th className="table-head-data">Nombre:</th>
+                        <th className="table-head-data">Cantidad:</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     {pedido.map((p) => (
 
-                        <tr key={p.id}>                            
-                                <td>{p.id}</td>
-                                <td>{p.name}</td>
-                                <td>{p.quantity}</td>                            
+                        <tr className="tr-data-order" key={p.id}>                            
+                                <td className="table-data">{p.id}</td>
+                                <td className="table-data">{p.name}</td>
+                                <td className="table-data">{p.quantity}</td>                            
                         </tr>
                     ))}
 

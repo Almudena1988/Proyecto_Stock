@@ -23,19 +23,19 @@ function App() {
 
   const [darkMode, setDarkMode] = useState(false);
   const location = useLocation();
-  
+
 
   return (
     <div className={darkMode ? "dark" : "light"}>
 
       {location.pathname !== "/" && (
         <NavBar darkMode={darkMode} setDarkMode={setDarkMode} />
-      )}     
+      )}
 
       <Routes> {/*Agrupa las rutas*/}
 
         {/* Renderiza un componente en función de la ruta que definamos en el navegador */}
-        <Route path="/" element={<Login />} />        
+        <Route path="/" element={<Login />} />
         <Route path="/home" element={<Productos darkMode={darkMode} setDarkMode={setDarkMode} />} />
         <Route path="/proveedores" element={<Proveedores />} />
         <Route path="/productos" element={<Productos />} />
