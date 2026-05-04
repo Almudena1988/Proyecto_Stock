@@ -1,11 +1,22 @@
 /* Se usa para estilos específicos del componente App.jsx. Normalmente incluye:
 Layout principal, contenedor de la app, estilos de la estructura base, cosas que solo usa App */
 
+
 /* -----Página de Login-----*/
 
 .login {
-  display: grid;
+  /* Se centra en una dimensión. Filas o columnas */
+  display: flex;
+
+  /* Centra el eje principal vertical u horizontal según sea
+  si es flex-direction: column(vertical) o flex-direction: row (horizontal) */
+
+  flex-direction: column; /* Vertical */
   justify-content: center;
+
+  /* Centra el eje secundario*/
+  align-items: center;
+
 }
 
 .welcome-container {
@@ -19,8 +30,9 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 }
 
 .user-input {
-
   width: 230px;
+
+  /* Espacio alrededor del contenido del elemento*/
   padding: 5px;
   border-radius: 7px;
 }
@@ -29,7 +41,7 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   padding-top: 12px;
   padding-bottom: 12px;
   position: relative
-  /* Cualquier elemento con position:absolute se va a posicionar respecto de éste*/
+    /* Cualquier elemento con position:absolute se va a posicionar respecto de éste*/
 }
 
 .pass-input {
@@ -42,9 +54,12 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 .hide-show-pass {
   padding-left: 5px;
   position: absolute;
+
   /* Necesita un position:relative padre sobre el que posicionarse*/
   top: 50%;
   right: 14px;
+
+  /* Recoloca un elemento en el eje horizontal o vertical*/
   transform: translateY(-50%)
 }
 
@@ -62,28 +77,23 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   background-color: rgb(18, 159, 18);
   color: rgb(253, 251, 248);
   font-size: larger;
-} 
+}
 
 /* -----Css para Navbar-----*/
 
-.main-container{
+.main-container {
   display: flex;
-  flex-direction: row;   
-}
-
-.navbar {
-  position: relative;
-  top: 0px;
-  left: 0px;
+  flex-direction: row;
+  flex-wrap: wrap;
   width: 100%;
-  display: flex;
-  z-index: 1000;
 }
 
 .navbar-group {
-  position: absolute;
   top: 0px;
-  z-index: 1000;
+  border-bottom: solid 0.5px #e2dada;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .textonavbar {
@@ -92,38 +102,43 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   padding: 20px;
 }
 
-.link {
-  
- 
-}
-
-.routes{
-  margin-left: 100px;
+.routes {
   display: flex;
-  gap: 50px;  
- 
-}
-
-.navbar-divider{
-  margin-left: 450px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .navbar-icon {
-  display: flex; /* permite alinear elementos dentro de un contenedor, ya sea en filas o columnas */  
-  flex-direction: row; /* Dirección de los elementos (filas=>horizontal) */  
+  /* permite alinear elementos dentro de un contenedor, ya sea en filas o columnas */
+  display: flex;
+
+  /* Dirección de los elementos (filas=>horizontal) */
+  flex-direction: row;
+
   align-items: center;
-  gap: 18px; /* Propiedad de FlexBox y Grid que define el espacio entre filas y columnas*/
+
+  /* Propiedad de FlexBox y Grid que define el espacio entre filas y columnas*/
+  gap: 18px;
+
+  margin-left: 40%;
 }
 
-.home-icon, .mode-icon, .help-icon {
+.home-icon,
+.mode-icon,
+.help-icon,
+.log-out-icon {
   padding: 10px;
   border-radius: 12px;
   transition: background-color 0.5s ease;
   background-color: white;
 }
 
-.home-icon:hover, .mode-icon:hover, .help-icon:hover {
-  background-color: #e2dada; 
+.home-icon:hover,
+.mode-icon:hover,
+.help-icon:hover,
+.log-out-icon:hover {
+  background-color: #e2dada;
 }
 
 .help-icon {
@@ -146,68 +161,102 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 
 /* -----Css para tablas de Productos, Proveedores, Pedido-----*/
 
-.table-container{
-  margin: 50px 
+.table-container {
+  margin: 50px
 }
 
-.main-table{
+.main-table {
   border-collapse: collapse;
   font-size: 0.9em;
   margin-bottom: 20px;
-  margin-right: 10px;   
+  margin-right: 10px;
 }
 
-.table-head{
+.table-head {
   text-align: left;
   border-radius: 8px;
 }
 
-.table-head-data { 
-  background-color:#2b8340;
-  color:white;
+.table-head-data {
+  background-color: #2b8340;
+  color: white;
   text-align: left;
-  border-radius: 2px;   
+  border-radius: 2px;  
+  padding: 7px;
+  border: 1px solid #ccc;
+  text-align: center;
 }
 
-.light .tr-data:nth-of-type(even){
+.light .tr-data:nth-of-type(even) {
   background-color: #eae3e3;
 }
 
-.light .table.table-button{
-    background-color: #434040;
-}
-
-.dark .tr-data:nth-of-type(even){
+.light .table.table-button {
   background-color: #434040;
 }
 
-.dark .table-button{
+.dark .tr-data:nth-of-type(even) {
+  background-color: #434040;
+}
+
+.dark .table-button {
   background-color: #434040;
 }
 
 
-
-.table-data{  
+.table-data {
   padding: 12px 15px;
-}  
+ 
+}
 
-.table-button{
+.table-button {
   background-color: white;
 }
 
-.table-head-data-new-order, .table-data-new-order{
- text-align: left;
- border-radius: 2px;
- padding: 8px;
- border-bottom: solid 1px #434040;
+.table-head-data-new-order,
+.table-data-new-order {
+  text-align: left;
+  border-radius: 2px;
+  padding: 8px;
+  border-bottom: solid 1px #434040;
+
+}
+
+.texto-order {
+  margin: 30px;
+}
+
+.main-table-order {
+  border-collapse: collapse;
+  font-size: 0.9em;
+  margin: 3%;
+
+  width: 70%;
 
 }
 
 
-/* -----Css para botón de PDF-----*/ 
+.table-head-data-order {
+  background-color: #2b8340;
+  color: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+/* CELDAS */
+.table-data-order {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
 
 
-.pdf-button{
+
+
+
+/* -----Css para botón de PDF-----*/
+
+
+.pdf-button {
   margin-left: 5px;
   background-color: #434040;
   font-size: large;
@@ -215,7 +264,7 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 
 /* -----Css para Nuevo Pedido----- */
 
-.table-new-order{
+.table-new-order {
   margin: 50px;
 }
 
@@ -224,25 +273,8 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 
 
 
-.link{
-  font-family:"helvetica neue", helvetica, arial, sans-serif;
+.link {
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
   font-size: 14px;
-  color: #0f0f0f;  
+  color: #0f0f0f;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

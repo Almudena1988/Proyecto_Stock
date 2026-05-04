@@ -10,8 +10,6 @@ export function NavBar({ darkMode, setDarkMode }) {
     return (
         <div className="main-container">
 
-            <Navbar className="navbar" />
-
             <NavbarGroup className="navbar-group">
 
                 <div className="textonavbar" >
@@ -24,10 +22,10 @@ export function NavBar({ darkMode, setDarkMode }) {
                     <Link className='link' to="/pedido">Pedidos</Link>
                     <Link className='link' to="/new">Nuevo pedido</Link>
                 </div>
-                <div className="navbar-divider">
-                    <NavbarDivider />
-                </div>
+          
                 <div className="navbar-icon">
+
+                    <NavbarDivider />
 
                     <Link to="/home" > <Icon className="home-icon" icon="home" size={20} color='black' /> </Link>
 
@@ -52,7 +50,7 @@ export function NavBar({ darkMode, setDarkMode }) {
                     <Link to="/" ><Icon className='log-out-icon'
                         icon="log-out"
                         color='black'
-                        size={20}                       
+                        size={20}
                         style={{ cursor: "pointer" }}></Icon></Link>
 
                 </div>
