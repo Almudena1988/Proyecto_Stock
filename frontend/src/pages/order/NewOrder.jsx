@@ -61,7 +61,7 @@ export function NewOrder() {
                 <tbody>
                     {order.length > 0 ? (
                         order.map((o) => (
-                            <tr   key={o.id}>
+                            <tr key={o.id}>
                                 <td className="table-data-new-order">{o.name}</td>
                                 <td className="table-data-new-order">{o.stock_current}</td>
                                 <td className="table-data-new-order">{o.stock_minimum}</td>
@@ -94,7 +94,7 @@ export function NewOrder() {
                 <Button
                     size="small"
                     variant="contained"
-                    color="success" 
+                    color="success"
                     onClick={() => { handleGeneratedOrder(); handleSendOrder() }}
                     type="button">
 
@@ -111,7 +111,7 @@ export function NewOrder() {
                             loading ? <button className="pdf-button">"Generando PDF..." </button> :
 
                                 <Button
-                                   
+
                                     size="small"
                                     variant="contained"
                                     color="success">

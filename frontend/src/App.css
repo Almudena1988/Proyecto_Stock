@@ -109,6 +109,13 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   gap: 20px;
 }
 
+.link {   
+  color: #4c3737;
+  font-size: 13px; 
+  
+}
+
+
 .navbar-icon {
   /* permite alinear elementos dentro de un contenedor, ya sea en filas o columnas */
   display: flex;
@@ -273,8 +280,3 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 
 
 
-.link {
-  font-family: "helvetica neue", helvetica, arial, sans-serif;
-  font-size: 14px;
-  color: #0f0f0f;
-}
