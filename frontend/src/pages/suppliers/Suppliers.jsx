@@ -81,7 +81,7 @@ export function Proveedores() { // Se define el componente
                             <td className="table-data">{p.id}</td>
                             <td className="table-data">{p.email}</td>
                             <td className="table-data">{p.address}</td>
-                            <td className="table-data">{p.created_at}</td>
+                            <td className="table-data">{new Date(p.created_at).toLocaleString("es-ES")}</td>
                             <td className="table-button">
                                 <Button
                                     size="small"
