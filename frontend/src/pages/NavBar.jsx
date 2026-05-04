@@ -29,16 +29,16 @@ export function NavBar({ darkMode, setDarkMode }) {
                 </div>
                 <div className="navbar-icon">
 
-                    <Link to="/" className="home-icon"> <Icon icon="home" size={20}  color='black' /> </Link>
+                    <Link to="/home" > <Icon className="home-icon" icon="home" size={20} color='black' /> </Link>
 
                     <Icon className="mode-icon"
-                        icon="contrast"                       
+                        icon="contrast"
                         style={{ cursor: "pointer" }}
                         size={20}
                         onClick={() => setDarkMode(!darkMode)} />
 
                     {/* onClick siempre recibe una función. Esa función puede:
-                    cambiar de estado, llamar funciones*/}
+                    cambiar de estado, llamar funciones...*/}
 
                     <Icon className="help-icon"
                         onClick={() => setOpen(true)}
@@ -47,8 +47,14 @@ export function NavBar({ darkMode, setDarkMode }) {
                         size={20}
                         style={{ cursor: "pointer" }} />
 
-                    <HelpIcon open={open}
-                        handleClose={() => setOpen(false)} ></HelpIcon>
+                    <HelpIcon open={open} handleClose={() => setOpen(false)} ></HelpIcon>
+
+                    <Link to="/" ><Icon className='log-out-icon'
+                        icon="log-out"
+                        color='black'
+                        size={20}                       
+                        style={{ cursor: "pointer" }}></Icon></Link>
+
                 </div>
 
             </NavbarGroup>
