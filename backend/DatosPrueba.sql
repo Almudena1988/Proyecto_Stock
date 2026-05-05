@@ -3,7 +3,10 @@ INSERT INTO suppliers (name, email, address) VALUES
 ('Proveedor Dos', 'dos@example.com', 'Avenida Diagonal 123, Barcelona'),
 ('Proveedor Tres', 'tres@example.com', 'Gran Vía 45, Madrid'),
 ('Proveedor Cuatro', 'cuatro@example.com', 'Calle Larios 10, Málaga'),
-('Proveedor Cinco', 'cinco@example.com', 'Calle Colón 8, Valencia');
+('Proveedor Cinco', 'cinco@example.com', 'Calle Colón 8, Valencia'),
+('Proveedor Seis', 'seis@example.com', 'Calle Cuadrado 34, Cádiz'),
+('Proveedor Siete', 'siete@example.com', 'Calle Menor 12, León'),
+
 
 INSERT INTO products (name, description, stock_current, stock_minimum, supplier_id) VALUES 
 ('Guantes de nitrilo desechables', 'Guantes sin polvo de nitrilo, alta resistencia química, talla M, aptos para laboratorio y manipulación de muestras.', 200, 50, 1), 
