@@ -14,6 +14,7 @@ paths:
       summary: Obtener todos los proveedores   
       description: Devuelve una lista con todos los proveedores  
       responses: 
+      
         "200":
           description: Lista de proveedores conseguida
           content:
@@ -48,6 +49,7 @@ paths:
       summary: Obtener los datos de un proveedor según id
       description: Devuelve una lista con los datos de un proveedor
       responses:
+
         "200":
           description: Lista del proveedor conseguida  
           content:
@@ -88,6 +90,7 @@ paths:
             schema:
               type: array
       responses:
+
         "201":
           description: Datos del proveedor creados
           content:
@@ -122,6 +125,7 @@ paths:
       summary: Modificar datos de un proveedor
       description: Devuelve una lista con los datos del proveedor midificados
       responses:
+
         "200":
           description: Datos del proveedor actualizados
           content:
@@ -163,6 +167,7 @@ paths:
       summary: Eliminar datos de un proveedor
       description: Elimina la entrada de la base de datos de un proveedor
       responses:
+
         "200":
           description: Datos del proveedor eliminados
           content: 
@@ -225,6 +230,7 @@ components:
       summary: Obtener todos los productos
       description: Devuelve una lista con todos los productos
       responses:
+
         "200":
           description: Lista conseguida existosamente
           content:
@@ -255,10 +261,11 @@ components:
 
     /get:
       tags:
-        -suppliers/{id}  
+        -products/{id}  
       summary: Obtener datos de un proveedor
-      description: Devuelve una lista con los datos de un proveedor
+      description: Devuelve una lista con los datos de un producto
       responses:
+
         "200":
           description: Lista conseguida existosamente
           content:
@@ -289,18 +296,19 @@ components:
 
     /post:
       tags:
-        - suppliers/{id}
-      summary: Añade datos de proveedor
-      description: Agrega un proveedor nuevo en la base de datos
+        - products/{id}
+      summary: Añade datos de un producto
+      description: Agrega un producto nuevo en la base de datos
       requestBody:
         required: true
         content: 
           application/json:
             schema:
               type: array
-      responses:   
+      responses: 
+
         "201":
-          descrption: Dados del proveedor añadidos
+          descrption: Dados del producto añadidos
           content:
             application/json:
               schema:
@@ -329,12 +337,13 @@ components:
 
     /put: 
       tags:
-        - suppliers/{id}
-      summary: Modificar datos de un proveedor
-      description: Modifica los datos de uno de los proveedores en la base de datos
+        - products/{id}
+      summary: Modificar datos de un producto
+      description: Modifica los datos de uno de los productos en la base de datos
       responses:
+
         "200":
-          description: Datos del proveedor actualizados
+          description: Datos del producto actualizados
           content:
             application/json:
               schema:
@@ -370,19 +379,20 @@ components:
 
     /delete:
       tags:
-        -suppliers/{id}
-      summary: Borrar uno de los proveedores
-      description: Borra los datos de uno de los proveedores de la base de datos
+        -products/{id}
+      summary: Borrar uno de los productos
+      description: Borra los datos de uno de los productos de la base de datos
       responses:
+
         "200":
-          description: Datos del proveedor eliminados
+          description: Datos del producto eliminados
           content:
             application/json:
               schema:
                 type: array
 
         "500":
-          description: Error al eliminar proveedor
+          description: Error al eliminar producto
           content:
             application/json:
               schema:
@@ -439,6 +449,47 @@ components: # Donde se definen las entradas y respuestas que va a usar la API
         stock_minimun:
           type: integer
           description: Cantidad mínima de stock  
+
+
+  /orders:
+
+    get: 
+      tags:
+        -orders
+      summary: Obtener todos los pedidos
+      description: Devuelve una lista con los pedidos hechos
+      responses:
+
+        "200":
+          description: Lista de los pedidos conseguida
+          content: 
+            application/json:
+              schema:
+                type: array
+
+        "204":
+          description: Lista vacía
+          content:
+            application/json:
+              schema:
+                type: array
+
+        "500": 
+        description: Error al obtener los datos del pedido
+        content:
+          application/json:
+            schema:
+              type: array
+
+        default:
+          description: Error inesperado
+          content:
+            application/json:
+              schema:
+                type: array
+                                   
+
+        
     
 
                    
