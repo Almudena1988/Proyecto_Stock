@@ -44,6 +44,7 @@ export const remov = async (req, res) => {
         res.status(200).json({ message: "Datos de proveedores eliminado", data });
 
     } catch (error) {
+        console.error("Error:", error);
         res.status(500).json({ error: "Error al eliminar proveedor" });
     }
 };

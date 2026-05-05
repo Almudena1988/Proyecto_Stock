@@ -20,15 +20,7 @@ export function Proveedores() { // Se define el componente
     const [proveedores, setProveedores] = useState([]);  // Es el estado inicial 
     const [nuevoProveedor, setNuevoProveedor] = useState(false);
     const [proveedorEdit, setProveedorEdit] = useState(null);
-    const [open, setOpen] = useState(false);
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
+    const [proveedorAEliminar, setProveedorAEliminar] = useState(null);
 
 
     useEffect(() => { // Para ejecutar código cuando el componente se carga en pantalla o se cambia
@@ -42,7 +34,10 @@ export function Proveedores() { // Se define el componente
         try {
             const response = await fetch(`/api/v1/suppliers/${id}`, {
                 method: "DELETE"
+
             });
+            const data = await response.text();
+            console.log("Respuesta backend:", data);
 
             if (response.ok) {
                 console.log("Proveedor eliminado")
@@ -54,17 +49,20 @@ export function Proveedores() { // Se define el componente
                     previa.filter(p => p.id !== id)
                 );
             } else {
-                console.log("Status: ", response.status)
+                console.log("Status: ", response.status, data)
             }
         } catch (error) {
-            console.log("Error al borrar proveedor")
+            console.log("Error al borrar proveedor", error)
         }
     }
     // Empieza lo que el componente muestra por pantalla, lo que renderiza
     return (
         <div className="table-container">
+
             <h2>Proveedores</h2>
+
             <table className="main-table">
+
                 <thead>
                     <tr >
                         <th className="table-head-data">Nombre</th>
@@ -73,7 +71,9 @@ export function Proveedores() { // Se define el componente
                         <th className="table-head-data">Dirección</th>
                         <th className="table-head-data">Fecha de creación</th>
                     </tr>
+
                 </thead>
+
                 <tbody>
                     {proveedores.length > 0 ? (proveedores.map((p) => (
                         <tr className="tr-data" key={p.id}>
@@ -83,43 +83,25 @@ export function Proveedores() { // Se define el componente
                             <td className="table-data">{p.address}</td>
                             <td className="table-data">{new Date(p.created_at).toLocaleString("es-ES")}</td>
                             <td className="table-button">
+
                                 <Button
                                     size="small"
                                     variant="contained"
                                     color="success"
                                     onClick={() => setProveedorEdit(p)}>Modificar</Button>
                             </td>
+
                             <td className="table-button">
+
                                 <Button
                                     size="small"
                                     variant="contained"
                                     color='success'
-                                    onClick={handleClickOpen}> Eliminar</Button>
-                                <Dialog
-                                    open={open}
-                                    onClose={handleClose}
-                                    aria-labelledby="alert-dialog-title"
-                                    aria-describedby="alert-dialog-description"
-                                    role="alertdialog"
-                                >
-                                    <DialogTitle id="alert-dialog-title"> {"Mensaje"} </DialogTitle>
-                                    <DialogContent>
+                                    onClick={() => setProveedorAEliminar(p)}>
+                                    Eliminar
+                                </Button>
+                            </td>
 
-                                        <DialogContentText id="alert-dialog-description">
-                                            ¿Estás seguro de que quieres eliminar la información?
-                                        </DialogContentText>
-                                    </DialogContent>
-
-                                    <DialogActions>
-                                        <Button onClick={handleClose} autoFocus>No</Button>
-                                        <Button onClick={() => {
-                                            handleDelete(p.id);
-                                            handleClose();
-                                        }}>
-                                            Si
-                                        </Button>
-                                    </DialogActions>
-                                </Dialog></td>
                         </tr>
                     ))) : (<tr>
                         <td>Cargando datos</td>
@@ -128,19 +110,60 @@ export function Proveedores() { // Se define el componente
                 </tbody>
 
             </table>
+
+            <Dialog
+
+                open={!!proveedorAEliminar}
+                onClose={() => setProveedorAEliminar(null)}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+                role="alertdialog"
+            >
+                <DialogTitle id="alert-dialog-title"> {"Mensaje"} </DialogTitle>
+
+                <DialogContent>
+
+                    <DialogContentText id="alert-dialog-description">
+                        ¿Estás seguro de que quieres eliminar la información?
+                    </DialogContentText>
+
+                </DialogContent>
+
+                <DialogActions>
+
+                    <Button onClick={() => setProveedorAEliminar(null)}>No</Button>
+
+                    <Button onClick={() => {
+                        handleDelete(proveedorAEliminar.id);
+                        setProveedorAEliminar(null);
+                    }}>
+                        Si
+                    </Button>
+
+                </DialogActions>
+
+            </Dialog>
+
             <div>
                 {/* Añadir*/}
-                <Button size="small" variant="contained" color="success" onClick={() => setNuevoProveedor(true)}>Añadir Proveedor</Button>
+                <Button size="small"
+                    variant="contained"
+                    color="success"
+                    onClick={() => setNuevoProveedor(true)}>
+                    Añadir Proveedor
+                </Button>
+
             </div>
+
             <div>
                 {/* Editar */}
                 {proveedorEdit && (<UpdateSupplier {...proveedorEdit}
-                 setProveedorEdit={setProveedorEdit} />)}
+                    setProveedorEdit={setProveedorEdit} />)}
             </div>
 
             {/* Añadir */}
             <div>
-                {nuevoProveedor && (<NewSupplier setNuevoProveedor={setNuevoProveedor}/>)}
+                {nuevoProveedor && (<NewSupplier setNuevoProveedor={setNuevoProveedor} />)}
             </div>
 
 
