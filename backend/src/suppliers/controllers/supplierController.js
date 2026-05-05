@@ -7,7 +7,8 @@ export const getAll = async (req, res) => {
         res.json(data);
 
     } catch (error) {
-        res.status(500).json({ error: "Error al obtener los datos del proveedor" });
+        if (error.message === "NOT_FOUND")
+            res.status(500).json({ error: "Error al obtener los datos del proveedor" });
     }
 };
 
