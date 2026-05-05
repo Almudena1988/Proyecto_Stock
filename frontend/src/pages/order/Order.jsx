@@ -17,7 +17,6 @@ export function Pedido() {
             <table className="main-table-order">
                 <thead className="table-head-data-order">
                     <tr>
-
                         <th className="table-head-data-order">Nombre del producto:</th>
                         <th className="table-head-data-order">Cantidad:</th>
                     </tr>

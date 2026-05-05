@@ -69,7 +69,6 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 }
 
 .enter-button {
-
   border: 12px;
   border-radius: 12px;
   padding: 6px;
@@ -111,8 +110,7 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 
 .link {   
   color: #4c3737;
-  font-size: 13px; 
-  
+  font-size: 13px;   
 }
 
 
@@ -166,7 +164,7 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   min-height: 100vh;
 }
 
-/* -----Css para tablas de Productos, Proveedores, Pedido-----*/
+/* -----Css para tablas de Productos, Proveedores-----*/
 
 .table-container {
   margin: 50px
@@ -198,6 +196,10 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   background-color: #eae3e3;
 }
 
+.light .tr-data:nth-of-type(odd){
+  background-color: white;
+}
+
 .light .table.table-button {
   background-color: #434040;
 }
@@ -220,6 +222,10 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   background-color: white;
 }
 
+/* CSS para Nuevo Pedido*/
+
+/*table-container, main-table y table-head igual que Productos y Pedidos*/
+
 .table-head-data-new-order,
 .table-data-new-order {
   text-align: left;
@@ -229,6 +235,8 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 
 }
 
+/* Css para Pedido*/
+
 .texto-order {
   margin: 30px;
 }
@@ -237,11 +245,8 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   border-collapse: collapse;
   font-size: 0.9em;
   margin: 3%;
-
   width: 70%;
-
 }
-
 
 .table-head-data-order {
   background-color: #2b8340;
@@ -250,14 +255,10 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   border: 1px solid #ccc;
 }
 
-/* CELDAS */
 .table-data-order {
   padding: 10px;
   border: 1px solid #ccc;
 }
-
-
-
 
 
 /* -----Css para botón de PDF-----*/
@@ -267,12 +268,6 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   margin-left: 5px;
   background-color: #434040;
   font-size: large;
-}
-
-/* -----Css para Nuevo Pedido----- */
-
-.table-new-order {
-  margin: 50px;
 }
 
 
