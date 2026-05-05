@@ -37,7 +37,7 @@ export function NewSupplier({ setNuevoProveedor }) {
             }
 
         } catch (error) {
-            console.log("Error al añadir proveedores")
+            console.log("Error al añadir proveedores", error)
         }
     }
 

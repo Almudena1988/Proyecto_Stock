@@ -52,7 +52,7 @@ export function ModificarProducto({
             }
 
         } catch (error) {
-            console.log("Error modificando el producto");
+            console.log("Error modificando el producto", error);
 
         }
     };

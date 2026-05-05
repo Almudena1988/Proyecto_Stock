@@ -45,7 +45,7 @@ export function UpdateSupplier({
             }
 
         } catch (error) {
-            console.log("Error al actulizar datos del proveedor")
+            console.log("Error al actulizar datos del proveedor", error)
         }
     }
 

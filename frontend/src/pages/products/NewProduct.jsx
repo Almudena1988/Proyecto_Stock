@@ -40,7 +40,7 @@ export function CrearProducto(setProductoCreando) {
             }
 
         } catch (error) {
-            console.log("Error añadiendo nuevo producto");
+            console.log("Error añadiendo nuevo producto", error);
         }
     };
 
