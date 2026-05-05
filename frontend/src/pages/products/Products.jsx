@@ -22,16 +22,7 @@ export function Productos() {
     // Activar/desactivar elementos
 
     const [productoCreando, setProductoCreando] = useState(false); //En false no muestra el formulario
-    const [open, setOpen] = useState(false);
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
-
+    const [productoAEliminar, setProductoAEliminar] = useState(null);
 
     useEffect(() => {
         fetch("/api/v1/products")
@@ -69,8 +60,11 @@ export function Productos() {
     return (
         <div className="table-container">
             <div>
+
                 <h2>Productos</h2>
+
                 <table className="main-table" >
+
                     <thead className="table-head">
                         <tr  >
                             <th className="table-head-data">Nombre</th>
@@ -80,7 +74,9 @@ export function Productos() {
                             <th className="table-head-data">Stock mínimo</th>
                             <th className="table-head-data">Id proveedor</th>
                         </tr>
+
                     </thead>
+
                     <tbody>
                         {productos.length > 0 ? (
                             productos.map((p) => (
@@ -93,44 +89,72 @@ export function Productos() {
                                     <td className="table-data">{p.supplier_id}</td>
                                     <td className="table-button">
                                         {/* Editar */}
+
                                         <Button size="small" variant="contained" color="success" onClick={() => setProductoEditando(p)}>
                                             Modificar
                                         </Button>
+
                                     </td>
                                     <td className="table-button">
                                         {/* Borrar */}
-                                        <Button size="small" variant="contained" color="success" onClick={handleClickOpen}> Eliminar </Button>
-                                        <Dialog open={open} onClose={handleClose}>
-                                            <DialogTitle id="dialog-title">{"Mensaje"}</DialogTitle>
 
-                                            <DialogContent>
-                                                <DialogContentText id="dialog-description">
-                                                    ¿Estás seguro de que quieres eliminar el contenido?
-                                                </DialogContentText>
-                                            </DialogContent>
+                                        <Button size="small"
+                                            variant="contained"
+                                            color="success"
+                                            onClick={() => setProductoAEliminar(p)}>
+                                            Eliminar
+                                        </Button>
 
-                                            <DialogActions>
-                                                <Button onClick={handleClose} color="primary">
-                                                    No
-                                                </Button>
-
-                                                {/* Se borra una fila y se cierra la ventana*/}
-                                                <Button onClick={() => {
-                                                    handleDelete(p.id);
-                                                    handleClose();
-                                                }} color="primary" autoFocus>
-                                                    Si
-                                                </Button>
-                                                <Button style={{ top: "0", right: "0", position: "absolute" }} onClick={handleClose}>x</Button>
-                                            </DialogActions>
-                                        </Dialog>
                                     </td>
+
                                 </tr>
                             ))) : (<tr>
                                 <td colSpan="7"> Cargando</td>
                             </tr>)}
+
                     </tbody>
+
                 </table>
+
+                <Dialog
+
+                    open={!!productoAEliminar}
+                    onClose={() => setProductoAEliminar(null)}
+                >
+                    <DialogTitle id="dialog-title">{"Mensaje"}</DialogTitle>
+
+                    <DialogContent>
+
+                        <DialogContentText id="dialog-description">
+                            ¿Estás seguro de que quieres eliminar el contenido?
+                        </DialogContentText>
+
+                    </DialogContent>
+
+                    <DialogActions>
+
+                        <Button onClick={() => setProductoAEliminar(null)} color="primary">
+                            No
+                        </Button>
+
+                        {/* Se borra una fila y se cierra la ventana*/}
+                        <Button onClick={() => {
+                            handleDelete(productoAEliminar.id);
+                            setProductoAEliminar(null);
+                        }} color="primary" autoFocus>
+                            Si
+                        </Button>
+
+                        <Button
+                            style={{ top: "0", right: "0", position: "absolute" }}
+                            onClick={() => setProductoAEliminar(null)}>
+                            x
+                        </Button>
+
+                    </DialogActions>
+
+                </Dialog>
+
             </div>
 
             <div>
@@ -147,12 +171,12 @@ export function Productos() {
                 // Si el componente tiene props (ModificarProducto tiene: id, name...)
                 // con spread operator ... se le pueden pasar props dinámicos
                 // sin spread operator => <ModificarProducto id={producto.id} name={producto.name} stock={producto.stock} />
-                <ModificarProducto {...productoEditando} 
-                setProductoEditando={setProductoEditando}/>)}
+                <ModificarProducto {...productoEditando}
+                    setProductoEditando={setProductoEditando} />)}
             {/* Añadir */}
             <div>
                 {/* Si productoCreando es true, renderiza <CrearProducto /> */}
-                {productoCreando && (<CrearProducto setProductoCreando={setProductoCreando}/>)}
+                {productoCreando && (<CrearProducto setProductoCreando={setProductoCreando} />)}
             </div>
 
         </div>
