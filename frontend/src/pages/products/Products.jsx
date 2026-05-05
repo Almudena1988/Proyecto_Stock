@@ -15,6 +15,7 @@ import { Toaster, sileo } from "sileo";
 export function Productos() {
     const [productos, setProductos] = useState([]);
     const [productoEditando, setProductoEditando] = useState(null);
+    
     // useState(true/false) se puede utilizar para manejar cosas como:
     // Mostrar/ocultar formularios
     // Abrir/cerrar modales
@@ -53,12 +54,13 @@ export function Productos() {
             }
 
         } catch (error) {
-            console.log("Error al borrar producto");
+            console.log("Error al borrar producto", error);
         }
     };
 
     return (
         <div className="table-container">
+
             <div>
 
                 <h2>Productos</h2>
@@ -66,7 +68,8 @@ export function Productos() {
                 <table className="main-table" >
 
                     <thead className="table-head">
-                        <tr  >
+
+                        <tr>
                             <th className="table-head-data">Nombre</th>
                             <th className="table-head-data">Id producto</th>
                             <th className="table-head-data">Descripción</th>
@@ -78,8 +81,10 @@ export function Productos() {
                     </thead>
 
                     <tbody>
+
                         {productos.length > 0 ? (
                             productos.map((p) => (
+
                                 <tr className="tr-data" key={p.id}>
                                     <td className="table-data">{p.name}</td>
                                     <td className="table-data">{p.id} </td>
@@ -88,28 +93,36 @@ export function Productos() {
                                     <td className="table-data">{p.stock_minimum}</td>
                                     <td className="table-data">{p.supplier_id}</td>
                                     <td className="table-button">
-                                        {/* Editar */}
 
-                                        <Button size="small" variant="contained" color="success" onClick={() => setProductoEditando(p)}>
+                                        {/* Editar */}
+                                        <Button size="small"
+                                            variant="contained"
+                                            color="success"
+                                            onClick={() => setProductoEditando(p)}>
+
                                             Modificar
+
                                         </Button>
 
                                     </td>
-                                    <td className="table-button">
-                                        {/* Borrar */}
 
+                                    <td className="table-button">
+
+                                        {/* Borrar */}
                                         <Button size="small"
                                             variant="contained"
                                             color="success"
                                             onClick={() => setProductoAEliminar(p)}>
+
                                             Eliminar
+
                                         </Button>
 
                                     </td>
 
                                 </tr>
                             ))) : (<tr>
-                                <td colSpan="7"> Cargando</td>
+                                <td colSpan="7">Cargando</td>
                             </tr>)}
 
                     </tbody>
@@ -133,8 +146,12 @@ export function Productos() {
 
                     <DialogActions>
 
-                        <Button onClick={() => setProductoAEliminar(null)} color="primary">
+                        <Button 
+                        onClick={() => setProductoAEliminar(null)} 
+                        color="primary">
+
                             No
+
                         </Button>
 
                         {/* Se borra una fila y se cierra la ventana*/}

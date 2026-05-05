@@ -5,7 +5,7 @@ INSERT INTO suppliers (name, email, address) VALUES
 ('Proveedor Cuatro', 'cuatro@example.com', 'Calle Larios 10, Málaga'),
 ('Proveedor Cinco', 'cinco@example.com', 'Calle Colón 8, Valencia'),
 ('Proveedor Seis', 'seis@example.com', 'Calle Cuadrado 34, Cádiz'),
-('Proveedor Siete', 'siete@example.com', 'Calle Menor 12, León'),
+('Proveedor Siete', 'siete@example.com', 'Calle Menor 12, León');
 
 
 INSERT INTO products (name, description, stock_current, stock_minimum, supplier_id) VALUES 

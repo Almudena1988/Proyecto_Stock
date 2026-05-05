@@ -64,6 +64,7 @@ export function Proveedores() { // Se define el componente
             <table className="main-table">
 
                 <thead>
+
                     <tr >
                         <th className="table-head-data">Nombre</th>
                         <th className="table-head-data">Id proveedor</th>
@@ -75,7 +76,9 @@ export function Proveedores() { // Se define el componente
                 </thead>
 
                 <tbody>
+
                     {proveedores.length > 0 ? (proveedores.map((p) => (
+
                         <tr className="tr-data" key={p.id}>
                             <td className="table-data">{p.name}</td>
                             <td className="table-data">{p.id}</td>
@@ -140,6 +143,14 @@ export function Proveedores() { // Se define el componente
                         Si
                     </Button>
 
+                    <Button
+                        style={{ top: "0", right: "0", position: "absolute" }}
+                        onClick={() => setProveedorAEliminar(null)}>
+
+                        x
+
+                    </Button>
+
                 </DialogActions>
 
             </Dialog>
@@ -161,8 +172,9 @@ export function Proveedores() { // Se define el componente
                     setProveedorEdit={setProveedorEdit} />)}
             </div>
 
-            {/* Añadir */}
+
             <div>
+                {/* Añadir */}
                 {nuevoProveedor && (<NewSupplier setNuevoProveedor={setNuevoProveedor} />)}
             </div>
 
