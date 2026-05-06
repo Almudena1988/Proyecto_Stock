@@ -17,16 +17,16 @@ export function Proveedores() { // Se define el componente
     // proveedores: estado
     // setProveedores: función para actualizar el estado
 
-    const [proveedores, setProveedores] = useState([]);  // Es el estado inicial 
-    const [nuevoProveedor, setNuevoProveedor] = useState(false);
-    const [proveedorEdit, setProveedorEdit] = useState(null);
-    const [proveedorAEliminar, setProveedorAEliminar] = useState(null);
+    const [supplier, setSupplier] = useState([]);  // Es el estado inicial 
+    const [newSupplier, setNewSupplier] = useState(false);
+    const [supplierEdit, setSupplierEdit] = useState(null);
+    const [supplierDelete, setSupplierDelete] = useState(null);
 
 
     useEffect(() => { // Para ejecutar código cuando el componente se carga en pantalla o se cambia
         fetch("/api/v1/suppliers") // Petición a la API
             .then(res => res.json())
-            .then(data => setProveedores(data)) // Guarda los datos en proveedores. Provoca que el componente se vuelva a renderizar
+            .then(data => setSupplier(data)) // Guarda los datos en proveedores. Provoca que el componente se vuelva a renderizar
             .catch(err => console.error("Error:", err));
     }, []); // [] => el useEffect solo se ejecuta una vez al montar el componente
 
@@ -44,7 +44,7 @@ export function Proveedores() { // Se define el componente
                 sileo.error({ title: "Proveedor eliminado" })
 
                 //Recarga la página automáticamente
-                setProveedores(previa =>
+                setSupplier(previa =>
                     // Filter crea un nuevo array con los elementos que tengan id diferente al que quiero borrar
                     previa.filter(p => p.id !== id)
                 );
@@ -77,7 +77,7 @@ export function Proveedores() { // Se define el componente
 
                 <tbody>
 
-                    {proveedores.length > 0 ? (proveedores.map((p) => (
+                    {supplier.length > 0 ? (supplier.map((p) => (
 
                         <tr className="tr-data" key={p.id}>
                             <td className="table-data">{p.name}</td>
@@ -91,7 +91,7 @@ export function Proveedores() { // Se define el componente
                                     size="small"
                                     variant="contained"
                                     color="success"
-                                    onClick={() => setProveedorEdit(p)}>Modificar</Button>
+                                    onClick={() => setSupplierEdit(p)}>Modificar</Button>
                             </td>
 
                             <td className="table-button">
@@ -100,7 +100,7 @@ export function Proveedores() { // Se define el componente
                                     size="small"
                                     variant="contained"
                                     color='success'
-                                    onClick={() => setProveedorAEliminar(p)}>
+                                    onClick={() => setSupplierDelete(p)}>
                                     Eliminar
                                 </Button>
                             </td>
@@ -116,8 +116,8 @@ export function Proveedores() { // Se define el componente
 
             <Dialog
 
-                open={!!proveedorAEliminar}
-                onClose={() => setProveedorAEliminar(null)}
+                open={!!supplierDelete}
+                onClose={() => setSupplierDelete(null)}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
                 role="alertdialog"
@@ -134,18 +134,18 @@ export function Proveedores() { // Se define el componente
 
                 <DialogActions>
 
-                    <Button onClick={() => setProveedorAEliminar(null)}>No</Button>
+                    <Button onClick={() => setSupplierDelete(null)}>No</Button>
 
                     <Button onClick={() => {
-                        handleDelete(proveedorAEliminar.id);
-                        setProveedorAEliminar(null);
+                        handleDelete(supplierDelete.id);
+                        setSupplierDelete(null);
                     }}>
                         Si
                     </Button>
 
                     <Button
                         style={{ top: "0", right: "0", position: "absolute" }}
-                        onClick={() => setProveedorAEliminar(null)}>
+                        onClick={() => setSupplierDelete(null)}>
 
                         x
 
@@ -160,7 +160,7 @@ export function Proveedores() { // Se define el componente
                 <Button size="small"
                     variant="contained"
                     color="success"
-                    onClick={() => setNuevoProveedor(true)}>
+                    onClick={() => setNewSupplier(true)}>
                     Añadir Proveedor
                 </Button>
 
@@ -168,14 +168,14 @@ export function Proveedores() { // Se define el componente
 
             <div>
                 {/* Editar */}
-                {proveedorEdit && (<UpdateSupplier {...proveedorEdit}
-                    setProveedorEdit={setProveedorEdit} />)}
+                {supplierEdit && (<UpdateSupplier {...supplierEdit}
+                    setProveedorEdit={setSupplierEdit} />)}
             </div>
 
 
             <div>
                 {/* Añadir */}
-                {nuevoProveedor && (<NewSupplier setNuevoProveedor={setNuevoProveedor} />)}
+                {newSupplier && (<NewSupplier setNuevoProveedor={setNewSupplier} />)}
             </div>
 
 

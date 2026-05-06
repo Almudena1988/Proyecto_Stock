@@ -1,20 +1,19 @@
-
 import { useState, useEffect } from "react";
 import { CrearProducto } from "./NewProduct";
 import { Link } from "react-router-dom";
 import { ModificarProducto } from "./UpdateProduct";
+import { Toaster, sileo } from "sileo";
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { Toaster, sileo } from "sileo";
 
 
 export function Productos() {
-    const [productos, setProductos] = useState([]);
-    const [productoEditando, setProductoEditando] = useState(null);
+    const [products, setProducts] = useState([]);
+    const [productEdit, setProductEdit] = useState(null);
     
     // useState(true/false) se puede utilizar para manejar cosas como:
     // Mostrar/ocultar formularios
@@ -22,13 +21,13 @@ export function Productos() {
     // Mostrar menús desplegables
     // Activar/desactivar elementos
 
-    const [productoCreando, setProductoCreando] = useState(false); //En false no muestra el formulario
-    const [productoAEliminar, setProductoAEliminar] = useState(null);
+    const [productAdd, setProductAdd] = useState(false); //En false no muestra el formulario
+    const [productDelete, setProductDelete] = useState(null);
 
     useEffect(() => {
         fetch("/api/v1/products")
             .then(res => res.json())
-            .then(data => setProductos(data))
+            .then(data => setProducts(data))
             .catch(err => console.error("Error: ", err));
     }, []);
 
@@ -45,7 +44,7 @@ export function Productos() {
 
 
                 // Actualiza sin recargar
-                setProductos(previa =>
+                setProducts(previa =>
                     // Filter crea un nuevo array con los elementos que tengan id diferente al que quiero borrar
                     previa.filter(p => p.id !== id)
                 );
@@ -82,8 +81,8 @@ export function Productos() {
 
                     <tbody>
 
-                        {productos.length > 0 ? (
-                            productos.map((p) => (
+                        {products.length > 0 ? (
+                            products.map((p) => (
 
                                 <tr className="tr-data" key={p.id}>
                                     <td className="table-data">{p.name}</td>
@@ -98,7 +97,7 @@ export function Productos() {
                                         <Button size="small"
                                             variant="contained"
                                             color="success"
-                                            onClick={() => setProductoEditando(p)}>
+                                            onClick={() => setProductEdit(p)}>
 
                                             Modificar
 
@@ -112,7 +111,7 @@ export function Productos() {
                                         <Button size="small"
                                             variant="contained"
                                             color="success"
-                                            onClick={() => setProductoAEliminar(p)}>
+                                            onClick={() => setProductDelete(p)}>
 
                                             Eliminar
 
@@ -131,8 +130,8 @@ export function Productos() {
 
                 <Dialog
 
-                    open={!!productoAEliminar}
-                    onClose={() => setProductoAEliminar(null)}
+                    open={!!productDelete}
+                    onClose={() => setProductDelete(null)}
                 >
                     <DialogTitle id="dialog-title">{"Mensaje"}</DialogTitle>
 
@@ -147,7 +146,7 @@ export function Productos() {
                     <DialogActions>
 
                         <Button 
-                        onClick={() => setProductoAEliminar(null)} 
+                        onClick={() => setProductDelete(null)} 
                         color="primary">
 
                             No
@@ -156,15 +155,15 @@ export function Productos() {
 
                         {/* Se borra una fila y se cierra la ventana*/}
                         <Button onClick={() => {
-                            handleDelete(productoAEliminar.id);
-                            setProductoAEliminar(null);
+                            handleDelete(productDelete.id);
+                            setProductDelete(null);
                         }} color="primary" autoFocus>
                             Si
                         </Button>
 
                         <Button
                             style={{ top: "0", right: "0", position: "absolute" }}
-                            onClick={() => setProductoAEliminar(null)}>
+                            onClick={() => setProductDelete(null)}>
                             x
                         </Button>
 
@@ -177,23 +176,23 @@ export function Productos() {
             <div>
                 {/* Añadir */}
                 {/*Se inicializa la función en true para mostrar el formulario */}
-                <Button size="small" variant="contained" color="success" onClick={() => setProductoCreando(true)}>
+                <Button size="small" variant="contained" color="success" onClick={() => setProductAdd(true)}>
                     Añadir producto nuevo
                 </Button>
 
             </div>
 
             {/* Editar */}
-            {productoEditando && ( // && Solo si existe la propiedad se renderiza
+            {productEdit && ( // && Solo si existe la propiedad se renderiza
                 // Si el componente tiene props (ModificarProducto tiene: id, name...)
                 // con spread operator ... se le pueden pasar props dinámicos
                 // sin spread operator => <ModificarProducto id={producto.id} name={producto.name} stock={producto.stock} />
-                <ModificarProducto {...productoEditando}
-                    setProductoEditando={setProductoEditando} />)}
+                <ModificarProducto {...productEdit}
+                    setProductoEditando={setProductEdit} />)}
             {/* Añadir */}
             <div>
                 {/* Si productoCreando es true, renderiza <CrearProducto /> */}
-                {productoCreando && (<CrearProducto setProductoCreando={setProductoCreando} />)}
+                {productAdd && (<CrearProducto setProductoCreando={setProductAdd} />)}
             </div>
 
         </div>

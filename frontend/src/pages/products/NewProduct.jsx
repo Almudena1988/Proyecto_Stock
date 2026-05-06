@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Toaster, sileo } from "sileo";
 import Button from '@mui/material/Button';
 
-export function CrearProducto(setProductoCreando) {
+export function CrearProducto(setProductAdd) {
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
@@ -33,7 +33,7 @@ export function CrearProducto(setProductoCreando) {
             if (response.ok) {
                 console.log("Nuevo producto añadido");
                 sileo.success({ title: "Nuevo producto añadido"})
-                setProductoCreando(null);
+                setProductAdd(null);
             } else {
                 console.log("Status:", response.status);
                 console.log("Body:", data);

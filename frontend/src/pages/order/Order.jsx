@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 
 
 export function Pedido() {
-    const [pedido, setPedido] = useState([]);
+    const [orders, setOrders] = useState([]);
 
     useEffect(() => {
         fetch("/api/v1/orders")
             .then(res => res.json())
-            .then(data => setPedido(data))
+            .then(data => setOrders(data))
             .catch(err => console.error("Error: ", err));
     }, []);
 
@@ -24,7 +24,7 @@ export function Pedido() {
 
                 <tbody className="tr-data-order">
                    
-                        {pedido.map((p) => (
+                        {orders.map((p) => (
 
                             <tr key={p.id}>
                                 <td className="table-data-order">{p.name}</td>

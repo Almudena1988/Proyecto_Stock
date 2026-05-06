@@ -6,7 +6,7 @@ import { Icon } from '@blueprintjs/core'
 export function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [mensaje, setMensaje] = useState('');
+    const [message, setMessage] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
     const navigate = useNavigate();
@@ -16,17 +16,17 @@ export function Login() {
         // Validación para evitar campos vacíos
 
         if (username.trim() === '' || password.trim() === '') {
-            setMensaje('Todos los campos son obligatorios');
+            setMessage('Todos los campos son obligatorios');
             return;
         }
         // Usuario de prueba
 
         if (username === 'admin' && password === '1234') {
-            setMensaje('Login correcto');
+            setMessage('Login correcto');
             navigate('/home');
 
         } else {
-            setMensaje('Datos incorrectos');
+            setMessage('Datos incorrectos');
         }
     };
 
@@ -34,13 +34,13 @@ export function Login() {
 
         <div className='login'>
 
-            <div>
+            <div className='title-container'>
                 <h1> Lab<span style={{ color: "green" }}>Stock </span>Control</h1>
                 <p>Sistema de gestión de inventario</p>
             </div>
             <div className='welcome-container'>
-                <h3>Bienvenido</h3>
-                <p>Inicio de sesión</p>
+                <h3><span style={{ color: "green", fontSize:"22px" }}>Bienvenido</span></h3>
+               
             </div>
 
             <label>Usuario:</label>
@@ -48,7 +48,7 @@ export function Login() {
                 <input
                     className='user-input'
                     type="text"
-                    placeholder='Introduce el nombre de usuario'
+                    placeholder='ejemplo@dominio.com'
                     onChange={(e) => setUsername(e.target.value)} />
             </div>
 
@@ -79,7 +79,7 @@ export function Login() {
 
             </button>
 
-            <p>{mensaje}</p>
+            <p>{message}</p>
         </div>
 
 
