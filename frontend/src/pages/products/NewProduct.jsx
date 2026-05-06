@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Toaster, sileo } from "sileo";
+import { sileo } from "sileo";
 import Button from '@mui/material/Button';
 
-export function CrearProducto(setProductAdd) {
+export function CrearProducto({ setProducts, setProductAdd }) {
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
@@ -28,12 +28,24 @@ export function CrearProducto(setProductAdd) {
                     supplier_id
                 })
             });
-            const data = await response.json().catch(() => null);
+            const data = await response.json();
+
 
             if (response.ok) {
                 console.log("Nuevo producto añadido");
-                sileo.success({ title: "Nuevo producto añadido"})
-                setProductAdd(null);
+                sileo.success({ title: "Nuevo producto añadido" })
+                setProducts(prev => [...prev, {
+                    id: data.id,
+                    name,
+                    description,
+                    stock_current,
+                    stock_minimum,
+                    supplier_id
+                }
+                ]);
+                setProductAdd(false)
+
+
             } else {
                 console.log("Status:", response.status);
                 console.log("Body:", data);

@@ -183,11 +183,11 @@ export function Productos() {
                 // con spread operator ... se le pueden pasar props dinámicos
                 // sin spread operator => <ModificarProducto id={producto.id} name={producto.name} stock={producto.stock} />
                 <ModificarProducto {...productEdit}
-                    setProductoEditando={setProductEdit} />)}
+                    setProductEdit={setProductEdit} />)}
             {/* Añadir */}
             <div>
                 {/* Si productoCreando es true, renderiza <CrearProducto /> */}
-                {productAdd && (<CrearProducto setProductoCreando={setProductAdd} />)}
+                {productAdd && (<CrearProducto setProducts={setProducts} setProductAdd={setProductAdd} />)}
             </div>
 
         </div>
