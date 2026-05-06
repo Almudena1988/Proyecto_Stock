@@ -48,7 +48,7 @@ export function Login() {
                 <input
                     className='user-input'
                     type="text"
-                    placeholder='ejemplo@dominio.com'
+                    placeholder='Nombre de usuario'
                     onChange={(e) => setUsername(e.target.value)} />
             </div>
 
