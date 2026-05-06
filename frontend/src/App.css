@@ -11,7 +11,8 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   /* Centra el eje principal vertical u horizontal según sea
   si es flex-direction: column(vertical) o flex-direction: row (horizontal) */
 
-  flex-direction: column; /* Vertical */
+  flex-direction: column;
+  /* Vertical */
   justify-content: center;
 
   /* Centra el eje secundario*/
@@ -19,9 +20,16 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
 
 }
 
+.title-container {
+  display: grid;
+  place-items: center;
+}
+
 .welcome-container {
   padding-bottom: 20px;
   padding-top: 20px;
+  display: grid;
+  place-items: center;
 }
 
 .user-container {
@@ -108,9 +116,9 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   gap: 20px;
 }
 
-.link {   
+.link {
   color: #4c3737;
-  font-size: 13px;   
+  font-size: 13px;
 }
 
 
@@ -186,7 +194,7 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   background-color: #2b8340;
   color: white;
   text-align: left;
-  border-radius: 2px;  
+  border-radius: 2px;
   padding: 7px;
   border: 1px solid #ccc;
   text-align: center;
@@ -196,7 +204,7 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   background-color: #eae3e3;
 }
 
-.light .tr-data:nth-of-type(odd){
+.light .tr-data:nth-of-type(odd) {
   background-color: white;
 }
 
@@ -212,14 +220,14 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   background-color: #434040;
 }
 
-
 .table-data {
   padding: 12px 15px;
- 
+
 }
 
 .table-button {
   background-color: white;
+  padding: 12px;
 }
 
 /* CSS para Nuevo Pedido*/
@@ -269,9 +277,3 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   background-color: #434040;
   font-size: large;
 }
-
-
-
-
-
-
