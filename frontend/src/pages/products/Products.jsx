@@ -3,6 +3,7 @@ import { CrearProducto } from "./NewProduct";
 import { Link } from "react-router-dom";
 import { ModificarProducto } from "./UpdateProduct";
 import { Toaster, sileo } from "sileo";
+import { Icon } from '@blueprintjs/core'
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -14,7 +15,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 export function Productos() {
     const [products, setProducts] = useState([]);
     const [productEdit, setProductEdit] = useState(null);
-    
+
     // useState(true/false) se puede utilizar para manejar cosas como:
     // Mostrar/ocultar formularios
     // Abrir/cerrar modales
@@ -94,28 +95,22 @@ export function Productos() {
                                     <td className="table-button">
 
                                         {/* Editar */}
-                                        <Button size="small"
-                                            variant="contained"
-                                            color="success"
-                                            onClick={() => setProductEdit(p)}>
-
-                                            Modificar
-
-                                        </Button>
-
+                                        <Icon
+                                            icon="edit"
+                                            style={{ cursor: "pointer" }}
+                                            onClick={() => setProductEdit(p)}
+                                        />
+                                        
                                     </td>
 
                                     <td className="table-button">
 
                                         {/* Borrar */}
-                                        <Button size="small"
-                                            variant="contained"
-                                            color="success"
-                                            onClick={() => setProductDelete(p)}>
-
-                                            Eliminar
-
-                                        </Button>
+                                        <Icon
+                                            icon="trash"
+                                            color="green"
+                                            onClick={() => setProductDelete(p)}
+                                        />
 
                                     </td>
 
@@ -145,9 +140,9 @@ export function Productos() {
 
                     <DialogActions>
 
-                        <Button 
-                        onClick={() => setProductDelete(null)} 
-                        color="primary">
+                        <Button
+                            onClick={() => setProductDelete(null)}
+                            color="primary">
 
                             No
 

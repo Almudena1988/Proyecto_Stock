@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { NewSupplier } from "./NewSupplier";
 import { UpdateSupplier } from "./UpdateSupplier";
+import { Toaster, sileo } from "sileo";
+import { Icon } from '@blueprintjs/core'
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { Toaster, sileo } from "sileo";
+
 
 
 
@@ -87,22 +89,22 @@ export function Proveedores() { // Se define el componente
                             <td className="table-data">{new Date(p.created_at).toLocaleString("es-ES")}</td>
                             <td className="table-button">
 
-                                <Button
-                                    size="small"
-                                    variant="contained"
-                                    color="success"
-                                    onClick={() => setSupplierEdit(p)}>Modificar</Button>
+                                <Icon
+                                    icon="edit"
+                                    style={{ cursor: "pointer" }}
+                                    onClick={() => setSupplierEdit(p)}
+                                />
+
                             </td>
 
                             <td className="table-button">
 
-                                <Button
-                                    size="small"
-                                    variant="contained"
-                                    color='success'
-                                    onClick={() => setSupplierDelete(p)}>
-                                    Eliminar
-                                </Button>
+                                <Icon
+                                    icon="trash"
+                                    style={{ cursor: "pointer" }}
+                                    color="green"
+                                    onClick={() => setSupplierDelete(p)}
+                                />
                             </td>
 
                         </tr>
