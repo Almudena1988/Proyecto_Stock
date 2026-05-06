@@ -1,13 +1,15 @@
 {
   "name": "proyecto-stock",
   "version": "1.0.0",
+  "description": "Proyecto de gestión de stock",
   "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node backend/src/index.js",
-    "dev": "nodemon backend/src/index.js"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
+  "author": "Almudena",
   "dependencies": {
     "express": "^5.2.1",
     "knex": "^3.2.9",
