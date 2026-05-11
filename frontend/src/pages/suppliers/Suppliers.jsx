@@ -177,7 +177,7 @@ export function Proveedores() { // Se define el componente
 
             <div>
                 {/* Añadir */}
-                {newSupplier && (<NewSupplier setNuevoProveedor={setNewSupplier} />)}
+                {newSupplier && (<NewSupplier setSupplier={setSupplier} setNewSupplier={setNewSupplier} />)}
             </div>
 
 
