@@ -16,6 +16,7 @@ export function Productos() {
     const [products, setProducts] = useState([]);
     const [productEdit, setProductEdit] = useState(null);
 
+    // useState: sirve para guardar y actualizar datos dentro del componente
     // useState(true/false) se puede utilizar para manejar cosas como:
     // Mostrar/ocultar formularios
     // Abrir/cerrar modales
@@ -57,6 +58,7 @@ export function Productos() {
             console.log("Error al borrar producto", error);
         }
     };
+    
 
     return (
         <div className="table-container">
@@ -98,6 +100,7 @@ export function Productos() {
                                         <Icon
                                             icon="edit"
                                             style={{ cursor: "pointer" }}
+                                            // Se usa función flecha cuando se pasa argumentos en la función
                                             onClick={() => setProductEdit(p)}
                                         />
                                         
@@ -187,6 +190,8 @@ export function Productos() {
             {/* Añadir */}
             <div>
                 {/* Si productoCreando es true, renderiza <CrearProducto /> */}
+                {/* CrearProducto es un elemento hijo y los datos y funciones en envían 
+                de padre a hijo mediante props */}
                 {productAdd && (<CrearProducto setProducts={setProducts} setProductAdd={setProductAdd} />)}
             </div>
 
