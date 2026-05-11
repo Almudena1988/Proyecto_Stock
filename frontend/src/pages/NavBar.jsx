@@ -1,11 +1,12 @@
 import { Icon, NavbarDivider, NavbarGroup, Navbar } from '@blueprintjs/core'
 import { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { HelpIcon } from './HelpMenu.jsx';
 
 
 export function NavBar({ darkMode, setDarkMode }) {
     const [open, setOpen] = useState(false);
+
 
     return (
         <div className="main-container">
@@ -17,12 +18,69 @@ export function NavBar({ darkMode, setDarkMode }) {
                 </div>
 
                 <div className="routes">
-                    <Link className='link' to="/proveedores">Proveedores</Link>
-                    <Link className='link' to="/productos">Productos</Link>
-                    <Link className='link' to="/pedido">Pedidos</Link>
-                    <Link className='link' to="/new">Nuevo pedido</Link>
+                    {/* NavLink, componente de React Router, sabe si la ruta actual coincide con el enlace.
+                    Cuando la ruta en la que estoy y to="ruta" coinciden, se da isActive (boolean) */}
+                    <NavLink
+                        className='link'
+                        to="/proveedores"
+                        style={({ isActive }) => ({
+                            fontWeight: isActive ? "bold" : undefined,
+                            fontSize: isActive ? "16px" : undefined,
+                            color: isActive ? "black" : undefined,
+                            backgroundColor: isActive ? "#f2eaea" : undefined,
+                            borderRadius: isActive ? "8px" : undefined
+                        })}>
+
+                        Proveedores
+
+                    </NavLink>
+
+                    <NavLink
+                        className='link'
+                        to="/productos"
+                        style={({ isActive }) => ({
+                            fontWeight: isActive ? "bold" : undefined,
+                            fontSize: isActive ? "16px" : undefined,
+                            color: isActive ? "black" : undefined,
+                            backgroundColor: isActive ? "#f2eaea" : undefined,
+                            borderRadius: isActive ? "8px" : undefined
+                        })}>
+
+                        Productos
+
+                    </NavLink>
+
+                    <NavLink
+                        className='link'
+                        to="/pedido"
+                        style={({ isActive }) => ({
+                            fontWeight: isActive ? "bold" : undefined,
+                            fontSize: isActive ? "16px" : undefined,
+                            color: isActive ? "black" : undefined,
+                            backgroundColor: isActive ? "#f2eaea" : undefined,
+                            borderRadius: isActive ? "8px" : undefined
+                        })}>
+
+                        Pedidos
+
+                    </NavLink>
+
+                    <NavLink
+                        className='link'
+                        to="/new"
+                        style={({ isActive }) => ({
+                            fontWeight: isActive ? "bold" : undefined,
+                            fontSize: isActive ? "16px" : undefined,
+                            color: isActive ? "black" : undefined,
+                            backgroundColor: isActive ? "#f2eaea" : undefined,
+                            borderRadius: isActive ? "8px" : undefined
+                        })}>
+
+                        Nuevo pedido
+
+                    </NavLink>
                 </div>
-          
+
                 <div className="navbar-icon">
 
                     <NavbarDivider />
