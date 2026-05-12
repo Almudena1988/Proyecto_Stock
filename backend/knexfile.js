@@ -1,8 +1,7 @@
-// Update with your config settings.
-
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
+
 export default {
 
   development: {
@@ -43,20 +42,27 @@ export default {
       tableName: 'knex_migrations'
     }
   },
-
+  
   production: {
-    client: 'postgresql',
+    client: 'pg',
     connection: {
-      database: 'my_db',
-      user: 'username',
-      password: 'password'
+      host: process.env.DB_HOST || "database" ,
+      database: process.env.DB_NAME || 'my_db_stock',
+      user: process.env.DB_USER || "postgres",
+      password:process.env.DB_PASSWORD || '1234',
+      port: process.env.DB_PORT || 5432
     },
     pool: {
       min: 2,
       max: 10
     },
     migrations: {
-      tableName: 'knex_migrations'
+      tableName: 'knex_migrations',
+      directory: './src/db/migrations'
+    }, 
+    seeds:{
+      tableName: 'knex_seeds',
+      directory: './src/db/seeds'
     }
   }
 
