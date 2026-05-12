@@ -42,7 +42,7 @@ export const create = async (req, res) => {
 export const remov = async (req, res) => {
     try {
         const data = await service.delSupplier(req.params.id);
-        res.status(200).json({ message: "Datos de proveedores eliminado", data });
+        res.status(200).json({ message: "Datos del proveedor eliminados", data });
 
     } catch (error) {
         console.error("Error:", error);
