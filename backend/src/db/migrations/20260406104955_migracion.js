@@ -28,6 +28,7 @@ export async function up(knex) { // Migración que se ejecuta con knex migrate:l
         table.smallint('id').primary();
         table.smallint('product_id').unsigned().notNullable().references('id').inTable('products');
         table.smallint('quantity').notNullable();
+        table.timestamp('created_at').defaultTo(knex.fn.now());
     });
    
 
