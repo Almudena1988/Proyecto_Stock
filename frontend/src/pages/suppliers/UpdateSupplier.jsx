@@ -8,13 +8,14 @@ export function UpdateSupplier({
     email,
     address,
     created_at,
-    setProveedorEdit
+    setSupplierEdit
 }) {
     const [new_id, setNewId] = useState(id);
     const [new_name, setNewName] = useState(name);
     const [new_email, setNewEmail] = useState(email);
     const [new_address, setNewAddress] = useState(address);
     const [new_created_at, setNewCreatedAt] = useState(created_at)
+
 
     const handleEdit = async () => {
         try {
@@ -33,19 +34,19 @@ export function UpdateSupplier({
                 })
             });
 
-            const data = await response.json().catch(() => null);
+            const data = await response.json();
 
             if (response.ok) {
                 console.log("Datos del proveedor actualizados")
                 sileo.success({ title: "Datos de proveedor actualizado" })
-                setProveedorEdit(null);
+                setSupplierEdit(null);
             } else {
                 console.log("Status: ", response.status)
                 console.log("Body: ", data)
             }
 
         } catch (error) {
-            console.log("Error al actulizar datos del proveedor", error)
+            console.log("Error al actualizar datos del proveedor", error)
         }
     }
 
