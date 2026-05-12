@@ -1,4 +1,4 @@
-FROM node:24-alpine3.23
+FROM node:24-alpine
 
 #Directorio del trabajo dentro del contenedor. Todo lo que se haga después (COPY, RUN, CMD... ocurre dentro de /home/app)
 WORKDIR /home/app
@@ -15,5 +15,3 @@ COPY . .
 EXPOSE 4000
 
 CMD ["npm", "start"]
-
-
