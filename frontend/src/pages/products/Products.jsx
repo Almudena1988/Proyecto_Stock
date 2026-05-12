@@ -177,6 +177,7 @@ export function Productos() {
 
                                             {/* Borrar */}
                                             <Icon
+                                                style={{ cursor: "pointer" }}
                                                 icon="trash"
                                                 color="green"
                                                 onClick={() => setProductDelete(row.original)}
@@ -197,7 +198,7 @@ export function Productos() {
                         onClick={() => table.firstPage()}
                         disabled={!table.getCanPreviousPage()} // Desactiva si no hay más páginas
                         style={{
-                            fontSize:"18px",                            
+                            fontSize: "18px",
                             position: "fixed",
                             bottom: "50px",
                             right: "250px"
@@ -209,7 +210,7 @@ export function Productos() {
                         onClick={() => table.previousPage()}
                         disabled={!table.getCanPreviousPage()}
                         style={{
-                            fontSize:"18px",                            
+                            fontSize: "18px",
                             position: "fixed",
                             bottom: "50px",
                             right: "210px"
@@ -221,7 +222,7 @@ export function Productos() {
                         onClick={() => table.nextPage()}
                         disabled={!table.getCanNextPage()}
                         style={{
-                            fontSize:"18px",                            
+                            fontSize: "18px",
                             position: "fixed",
                             bottom: "50px",
                             right: "170px"
@@ -234,7 +235,7 @@ export function Productos() {
                         onClick={() => table.lastPage()}
                         disabled={!table.getCanNextPage()}
                         style={{
-                            fontSize:"18px",                                                     
+                            fontSize: "18px",
                             position: "fixed",
                             bottom: "50px",
                             right: "130px"
@@ -304,7 +305,7 @@ export function Productos() {
                     // sin spread operator => <ModificarProducto id={producto.id} name={producto.name} stock={producto.stock} />
                     <ModificarProducto {...productEdit}
                         setProductEdit={setProductEdit}
-                         />)}
+                    />)}
                 {/* Añadir */}
                 <div>
                     {/* Si productoCreando es true, renderiza <CrearProducto /> */}
@@ -312,9 +313,6 @@ export function Productos() {
                 de padre a hijo mediante props */}
                     {productAdd && (<CrearProducto setProducts={setProducts} setProductAdd={setProductAdd} />)}
                 </div>
-
-
-
 
             </div>
         );
