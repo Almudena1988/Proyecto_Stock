@@ -10,7 +10,7 @@ export function ModificarProducto({
     stock_current,
     stock_minimum,
     supplier_id,
-    setProductoEditando
+    setProductEdit
 }) {
 
     const [newname, setName] = useState(name);
@@ -40,7 +40,7 @@ export function ModificarProducto({
             if (response.ok) {
                 console.log("Producto actualizado");
                 sileo.success({ title: "Producto actualizado" })
-                setProductoEditando(null);
+                setProductEdit(null);
 
             } else {
                 console.log("Status:", response.status);

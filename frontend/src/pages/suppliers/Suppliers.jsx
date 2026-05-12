@@ -171,7 +171,7 @@ export function Proveedores() { // Se define el componente
             <div>
                 {/* Editar */}
                 {supplierEdit && (<UpdateSupplier {...supplierEdit}
-                    setProveedorEdit={setSupplierEdit} />)}
+                    setSupplierEdit={setSupplierEdit} />)}
             </div>
 
 
