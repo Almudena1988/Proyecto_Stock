@@ -107,8 +107,8 @@ export function Proveedores() { // Se define el componente
 
                             .sort((a, b) =>
                                 sortAsc
-                                    ? a.supplier_id - b.supplier_id
-                                    : b.supplier_id - a.supplier_id
+                                    ? a.id - b.id
+                                    : b.id - a.id
                             )
 
                             .map((p) => (

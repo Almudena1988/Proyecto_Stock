@@ -13,14 +13,18 @@ export function Pedido() {
 
     return (
         <div className="table-container-order">
+
             <h2 className="texto-order">Hoja de pedido</h2>
+
             <table className="main-table-order">
+
                 <thead className="table-head-data-order">
                     <tr>
-                        <th className="table-head-data-order">Id del pedido:</th>
-                        <th className="table-head-data-order">Nombre del producto:</th>
-                        <th className="table-head-data-order">Cantidad:</th>                        
+                        <th className="table-head-data-order">Id del pedido</th>
+                        <th className="table-head-data-order">Nombre del producto</th>
+                        <th className="table-head-data-order">Cantidad</th>                        
                     </tr>
+
                 </thead>
 
                 <tbody className="tr-data-order">
@@ -32,8 +36,7 @@ export function Pedido() {
                                 <td className="table-data-order">{p.name}</td>
                                 <td className="table-data-order">{p.quantity}</td>
                             </tr>
-                        ))}
-                    
+                        ))}                    
 
                 </tbody>
             </table>
