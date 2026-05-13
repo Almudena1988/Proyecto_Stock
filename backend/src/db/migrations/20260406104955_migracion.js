@@ -3,7 +3,7 @@
  * @returns { Promise<void> }
  */
 export async function up(knex) { // Migración que se ejecuta con knex migrate:latest
-    
+
     await knex.schema.createTable('suppliers', table => {
         table.increments('id').primary(); // Autoincremental y clave primaria
         table.string('name').notNullable();
@@ -25,12 +25,10 @@ export async function up(knex) { // Migración que se ejecuta con knex migrate:l
     });
 
     await knex.schema.createTable('orders', table => {
-        table.smallint('id').primary();
-        table.smallint('product_id').unsigned().notNullable().references('id').inTable('products');
-        table.smallint('quantity').notNullable();
+        table.increments('id').primary();        
         table.timestamp('created_at').defaultTo(knex.fn.now());
     });
-   
+
 
 
 };
@@ -40,8 +38,10 @@ export async function up(knex) { // Migración que se ejecuta con knex migrate:l
  * @returns { Promise<void> }
  */
 export async function down(knex) {
-    await knex.schema.dropTable('suppliers');
-    await knex.schema.dropTable('products');
     await knex.schema.dropTable('orders');
+    await knex.schema.dropTable('products');
+    await knex.schema.dropTable('suppliers');
+
+
 
 };
