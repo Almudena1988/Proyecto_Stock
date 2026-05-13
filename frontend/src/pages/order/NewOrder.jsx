@@ -29,35 +29,34 @@ export function NewOrder() {
     }, []); // Se renderiza solo cuando recarga la página
 
     // Función para generar el pedido
-    const handleGeneratedOrder = () => {
+    const handleGeneratedOrder = async () => {
 
         const generated = order
             .filter(o => o.quantity > 0)
             .map(o => ({
-                id: o.id,
-                name: o.name,
+                product_id: o.id,               
                 quantity: o.quantity
             }));
 
         setNewOrder(generated) // Se guarda el pedido 
         setGenerated(true); // Una vez se genera el pedido se muestra el botón de Imprimir pedido
-    };
+    
 
     // Función para guardar el pedido
-    const handleSendOrder = async () => {
+    
 
-        const response = await fetch('api/v1/orders', {
+        const response = await fetch('/api/v1/orders', {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
             },
-            body: JSON.stringify(newOrders)
+            body: JSON.stringify(generated)
 
         });
         const data = await response.json();
         console.log("Pedido guardado", data)
 
-    }
+};
 
     return (
 
@@ -152,7 +151,7 @@ export function NewOrder() {
                     size="small"
                     variant="contained"
                     color="success"
-                    onClick={() => { handleGeneratedOrder(); handleSendOrder() }}
+                    onClick={handleGeneratedOrder}
                     type="button">
 
                     Generar pedido
