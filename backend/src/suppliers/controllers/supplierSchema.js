@@ -4,6 +4,6 @@ import * as yup from "yup";
 
 export const supplierSchema = yup.object().shape({    
     name: yup.string().required("Se requiere el dato del nombre"),
-    email: yup.string().email("Introduce un email válido").required("Se necesita correo de contacto"),
+    email: yup.string().required("Se necesita correo de contacto"),
     address: yup.string().nullable()    
 });
