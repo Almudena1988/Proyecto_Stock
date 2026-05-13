@@ -9,6 +9,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
 
 
@@ -23,6 +25,8 @@ export function Proveedores() { // Se define el componente
     const [newSupplier, setNewSupplier] = useState(false);
     const [supplierEdit, setSupplierEdit] = useState(null);
     const [supplierDelete, setSupplierDelete] = useState(null);
+
+    const [sortAsc, setSortAsc] = useState(true);
 
 
     useEffect(() => { // Para ejecutar código cuando el componente se carga en pantalla o se cambia
@@ -63,6 +67,24 @@ export function Proveedores() { // Se define el componente
 
             <h2>Proveedores</h2>
 
+            <div style={{ marginBottom: "20px" }}>
+
+                <Button
+                    variant="contained"
+                    color="primary"
+                    size="small"
+                    onClick={() => setSortAsc(!sortAsc)}
+                    startIcon={
+                        sortAsc
+                            ? <ArrowUpwardIcon />
+                            : <ArrowDownwardIcon />
+                    }
+                >
+                    Ordenar proveedores
+                </Button>
+
+            </div>
+
             <table className="main-table">
 
                 <thead>
@@ -79,38 +101,48 @@ export function Proveedores() { // Se define el componente
 
                 <tbody>
 
-                    {supplier.length > 0 ? (supplier.map((p) => (
+                    {supplier.length > 0 ? (
 
-                        <tr className="tr-data" key={p.id}>
-                            <td className="table-data">{p.name}</td>
-                            <td className="table-data">{p.id}</td>
-                            <td className="table-data">{p.email}</td>
-                            <td className="table-data">{p.address}</td>
-                            <td className="table-data">{new Date(p.created_at).toLocaleString("es-ES")}</td>
-                            <td className="table-button">
+                        [...supplier]
 
-                                <Icon
-                                    icon="edit"
-                                    style={{ cursor: "pointer" }}
-                                    onClick={() => setSupplierEdit(p)}
-                                />
+                            .sort((a, b) =>
+                                sortAsc
+                                    ? a.supplier_id - b.supplier_id
+                                    : b.supplier_id - a.supplier_id
+                            )
 
-                            </td>
+                            .map((p) => (
 
-                            <td className="table-button">
+                                <tr className="tr-data" key={p.id}>
+                                    <td className="table-data">{p.name}</td>
+                                    <td className="table-data">{p.id}</td>
+                                    <td className="table-data">{p.email}</td>
+                                    <td className="table-data">{p.address}</td>
+                                    <td className="table-data">{new Date(p.created_at).toLocaleString("es-ES")}</td>
+                                    <td className="table-button">
 
-                                <Icon
-                                    icon="trash"
-                                    style={{ cursor: "pointer" }}
-                                    color="green"
-                                    onClick={() => setSupplierDelete(p)}
-                                />
-                            </td>
+                                        <Icon
+                                            icon="edit"
+                                            style={{ cursor: "pointer" }}
+                                            onClick={() => setSupplierEdit(p)}
+                                        />
 
-                        </tr>
-                    ))) : (<tr>
-                        <td>Cargando datos</td>
-                    </tr>)}
+                                    </td>
+
+                                    <td className="table-button">
+
+                                        <Icon
+                                            icon="trash"
+                                            style={{ cursor: "pointer" }}
+                                            color="green"
+                                            onClick={() => setSupplierDelete(p)}
+                                        />
+                                    </td>
+
+                                </tr>
+                            ))) : (<tr>
+                                <td>Cargando datos</td>
+                            </tr>)}
 
                 </tbody>
 

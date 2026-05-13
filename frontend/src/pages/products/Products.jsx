@@ -11,6 +11,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
 
 
@@ -27,6 +29,8 @@ export function Productos() {
 
     const [productAdd, setProductAdd] = useState(false); //En false no muestra el formulario
     const [productDelete, setProductDelete] = useState(null);
+
+    const [sortAsc, setSortAsc] = useState(true);
 
     useEffect(() => {
         fetch("/api/v1/products")
@@ -119,6 +123,24 @@ export function Productos() {
                 <div>
 
                     <h2>Productos</h2>
+
+                    <div>
+                        <Button
+                        variant="contained"
+                        color="primary"
+                        size="small"
+                        onClick={() => setSortAsc(!sortAsc)}
+                        startIcon={
+                            sortAsc
+                            ? <ArrowUpwardIcon/>
+                            : <ArrowDownwardIcon/>
+                        }                 
+                        >
+                            Ordenar productos
+
+                        </Button>
+
+                    </div>
 
                     <table className="main-table" >
 
