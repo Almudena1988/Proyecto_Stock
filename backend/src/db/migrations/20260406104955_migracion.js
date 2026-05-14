@@ -25,8 +25,9 @@ export async function up(knex) { // Migración que se ejecuta con knex migrate:l
     });
 
     await knex.schema.createTable('orders', table => {
+        table.string('name').notNullable();
         table.increments('id').primary();        
-        table.timestamp('created_at');
+        table.timestamp('created_at').defaultTo(knex.fn.now());
     });
 
 
