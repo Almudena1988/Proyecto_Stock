@@ -36,6 +36,7 @@ export function Proveedores() { // Se define el componente
             .catch(err => console.error("Error:", err));
     }, []); // [] => el useEffect solo se ejecuta una vez al montar el componente
 
+    // Para borrar proveedores
     const handleDelete = async (id) => {
         try {
             const response = await fetch(`/api/v1/suppliers/${id}`, {
@@ -81,6 +82,7 @@ export function Proveedores() { // Se define el componente
                     }
                 >
                     Ordenar proveedores
+                    
                 </Button>
 
             </div>
@@ -111,9 +113,10 @@ export function Proveedores() { // Se define el componente
                                     : b.id - a.id
                             )
 
-                            .map((p) => (
+                            .map((p) => (                                
 
                                 <tr className="tr-data" key={p.id}>
+                                    
                                     <td className="table-data">{p.name}</td>
                                     <td className="table-data">{p.id}</td>
                                     <td className="table-data">{p.email}</td>
@@ -203,7 +206,8 @@ export function Proveedores() { // Se define el componente
             <div>
                 {/* Editar */}
                 {supplierEdit && (<UpdateSupplier {...supplierEdit}
-                    setSupplierEdit={setSupplierEdit} />)}
+                    setSupplierEdit={setSupplierEdit}
+                    setSupplier={setSupplier} />)}
             </div>
 
 
