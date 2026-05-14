@@ -8,13 +8,14 @@ export function UpdateSupplier({
     email,
     address,
     created_at,
-    setSupplierEdit
+    setSupplierEdit,
+    setSupplier
 }) {
     const [new_id, setNewId] = useState(id);
     const [new_name, setNewName] = useState(name);
     const [new_email, setNewEmail] = useState(email);
     const [new_address, setNewAddress] = useState(address);
-    const [new_created_at, setNewCreatedAt] = useState(created_at)
+    const [new_created_at, setNewCreatedAt] = useState(created_at);
 
 
     const handleEdit = async () => {
@@ -37,9 +38,28 @@ export function UpdateSupplier({
             const data = await response.json();
 
             if (response.ok) {
-                console.log("Datos del proveedor actualizados")
-                sileo.success({ title: "Datos de proveedor actualizado" })
-                setSupplierEdit(null);
+                setSupplier(prev =>
+                    prev.map(p =>
+                        p.id === id
+                            ? {
+                                ...p,
+                                id: new_id,
+                                name: new_name,
+                                email: new_email,
+                                address: new_address,
+                                created_at: new_created_at
+                            }
+                            : p
+                    )
+                );
+
+                console.log("Datos del proveedor actualizados");
+
+                sileo.success({title: "Datos del proveedor actualizados"});
+
+                setSupplierEdit(null);              
+               
+               
             } else {
                 console.log("Status: ", response.status)
                 console.log("Body: ", data)
