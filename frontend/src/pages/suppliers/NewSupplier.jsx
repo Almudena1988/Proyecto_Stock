@@ -41,7 +41,7 @@ export function NewSupplier({ setSupplier, setNewSupplier }) {
                     name,
                     email,
                     address,
-                    date: data.date // Viene del backend que genera automáticamente
+                    created_at: data.created_at // Viene del backend que genera automáticamente
 
                 }]);
                 setNewSupplier(false); // Cierra el formulario
