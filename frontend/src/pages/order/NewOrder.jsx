@@ -34,12 +34,14 @@ export function NewOrder() {
         const generated = order
             .filter(o => o.quantity > 0)
             .map(o => ({
-                product_id: o.id,               
+                name: o.name,
+                id: o.id,               
                 quantity: o.quantity
             }));
 
         setNewOrder(generated) // Se guarda el pedido 
         setGenerated(true); // Una vez se genera el pedido se muestra el botón de Imprimir pedido
+        console.log("Pdf Data:", newOrders);
     
 
     // Función para guardar el pedido
@@ -159,6 +161,7 @@ export function NewOrder() {
                 </Button>
 
                 {generated && newOrders.length > 0 && (
+                    
                     <PDFDownloadLink
                         key={JSON.stringify(newOrders)}
                         document={<ConvertirPDF data={newOrders} />}
