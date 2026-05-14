@@ -19,8 +19,7 @@ export function Pedido() {
             <table className="main-table-order">
 
                 <thead className="table-head-data-order">
-                    <tr>
-                        <th className="table-head-data-order">Id del pedido</th>
+                    <tr>                        
                         <th className="table-head-data-order">Nombre del producto</th>
                         <th className="table-head-data-order">Cantidad</th>                        
                     </tr>
@@ -31,8 +30,7 @@ export function Pedido() {
                    
                         {orders.map((p) => (
 
-                            <tr key={p.id}>
-                                <td className="table-data-order">{p.id}</td>
+                            <tr key={p.id}>                                
                                 <td className="table-data-order">{p.name}</td>
                                 <td className="table-data-order">{p.quantity}</td>
                             </tr>

@@ -72,10 +72,7 @@ export function Productos() {
         } catch (error) {
             console.log("Error al borrar producto", error);
         }
-    };
-
-
-   
+    };   
 
     const data = useMemo(() => {
         return Array.isArray(products)
@@ -84,8 +81,6 @@ export function Productos() {
             )
             : [];
     }, [products, sortAsc]);
-
-
    
 
     const columns = useMemo(() => [
