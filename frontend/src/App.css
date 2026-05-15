@@ -12,7 +12,7 @@ Layout principal, contenedor de la app, estilos de la estructura base, cosas que
   si es flex-direction: column(vertical) o flex-direction: row (horizontal) */
 
   flex-direction: column;
-  /* Vertical */
+
   justify-content: center;
 
   /* Centra el eje secundario*/

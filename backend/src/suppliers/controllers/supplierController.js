@@ -1,3 +1,6 @@
+// Intermediario entre cliente que hace la petición y la lógica de negocio. Recibe la petición HTTP del cliente (req),
+// valida los datos de entrada, coordina con la capa de servicios y devuelve la respuesta HTTP (res)
+
 import * as service from "../services/supplierService.js";
 import { supplierSchema } from "./supplierSchema.js";
 

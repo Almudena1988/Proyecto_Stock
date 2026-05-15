@@ -3,23 +3,27 @@ import { CrearProducto } from "./NewProduct";
 import { ModificarProducto } from "./UpdateProduct";
 import { sileo } from "sileo";
 import { Icon } from "@blueprintjs/core";
-import {
-    useReactTable,
-    getCoreRowModel,
-    getPaginationRowModel,
-    flexRender
-} from "@tanstack/react-table";
-
+import { useReactTable, getCoreRowModel, getPaginationRowModel, flexRender } from "@tanstack/react-table";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
+// Se define el componente. Encargado de mostrar, crear, editar y eliminar productos
+
+{/* Flujo general: 
+    Se cargan los productos desde la API
+    Se renderizan en una tabla
+    El usuario puede:
+    - Crear
+    - Editar
+    - Eliminar 
+    El estado se sincroniza con el backend*/}
+    
 export function Productos() {
 
     const [products, setProducts] = useState([]);
@@ -39,10 +43,11 @@ export function Productos() {
 
     // Estado para controlar la paginación
     const [pagination, setPagination] = useState({
-        pageIndex: 0, // Página primera
+        pageIndex: 0, // Índice de la primera página
         pageSize: 8, // Cantidad de filas por página
     });
 
+    // Se ejecuta cuando el componente se monta
     useEffect(() => {
         fetch("/api/v1/products")
             .then(res => res.json())
@@ -72,17 +77,19 @@ export function Productos() {
         } catch (error) {
             console.log("Error al borrar producto", error);
         }
-    };   
-
+    };
+// Memoriza los datos ordenador
     const data = useMemo(() => {
+        // Comprueba si products es array
         return Array.isArray(products)
+            // Se copia el array para no modificar el estado original y ordena productos
             ? [...products].sort((a, b) =>
                 sortAsc ? a.id - b.id : b.id - a.id
             )
             : [];
     }, [products, sortAsc]);
-   
 
+// Se definen las columnas de tabla 
     const columns = useMemo(() => [
         { accessorKey: "id", header: () => "Id" },
         { accessorKey: "name", header: () => "Nombre del producto" },
@@ -117,6 +124,7 @@ export function Productos() {
                     variant="contained"
                     color="primary"
                     size="small"
+                    // sortAsc se inicia en true y ahora setSortAsc cambia el estado a false
                     onClick={() => setSortAsc(!sortAsc)}
                     startIcon={
                         sortAsc ? <ArrowUpwardIcon /> : <ArrowDownwardIcon />
@@ -141,7 +149,7 @@ export function Productos() {
                                 <th key={header.id} className="table-head-data">
                                     {header.isPlaceholder
                                         // El header puede ser texto simple, función o JSX, así flexRender 
-                                        //es una forma universal de TanStack de renderizar cualquier tipo
+                                        // es una forma universal de TanStack de renderizar cualquier tipo
                                         ? null
                                         : flexRender(
                                             header.column.columnDef.header,
@@ -154,6 +162,7 @@ export function Productos() {
                 </thead>
 
                 <tbody>
+                    {/* Comprueba que hay filas, recorre cada fila, dentro de cada fila, cada celda y renderiza */}
                     {table.getRowModel().rows.length > 0 ? (
                         table.getRowModel().rows.map(row => (
                             <tr className="tr-data" key={row.id}>

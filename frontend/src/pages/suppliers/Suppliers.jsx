@@ -13,10 +13,19 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
 
+// Se define el componente. Encargado de mostrar, crear, editar y eliminar proveedores
+
+{/* Flujo general: 
+    Se cargan los proveedores desde la API
+    Se renderizan en una tabla
+    El usuario puede:
+    - Crear
+    - Editar
+    - Eliminar 
+    El estado se sincroniza con el backend*/}
 
 
-export function Proveedores() { // Se define el componente
-
+export function Proveedores() { 
     // useState: Para manejar estado (datos que cambian). Se empieza con un array vacío
     // proveedores: estado
     // setProveedores: función para actualizar el estado
@@ -121,6 +130,7 @@ export function Proveedores() { // Se define el componente
                                     <td className="table-data">{p.id}</td>
                                     <td className="table-data">{p.email}</td>
                                     <td className="table-data">{p.address}</td>
+                                    {/* Convierte la fecha ISO del backend a formato legible español */}
                                     <td className="table-data">{new Date(p.created_at).toLocaleString("es-ES")}</td>
                                     <td className="table-button">
 

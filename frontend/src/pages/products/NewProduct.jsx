@@ -50,7 +50,7 @@ export function CrearProducto({ setProducts, setProductAdd }) {
                     stock_minimum,
                     supplier_id
                 }]);
-                setProductAdd(false) // Cierra el formulario
+                setProductAdd(false) // Oculta el formulario
 
             } else {
                 console.log("Status:", response.status); // Muestra el códido HTTP

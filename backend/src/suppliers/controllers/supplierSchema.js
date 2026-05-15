@@ -1,3 +1,5 @@
+// Se define con Yup la validación de los datos de Proveedor
+
 import * as yup from "yup";
 
 // No se añaden los campos de id y created_at porque ya los genera automáticamente la base de datos

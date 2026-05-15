@@ -9,21 +9,24 @@ export function NewSupplier({ setSupplier, setNewSupplier }) {
     const [address, setNewAddres] = useState("");
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
+        event.preventDefault(); // Evita recargar la página el enviar el formulario
 
         try {
+            // El frontend envía JSON string, el backend lo convierte a su propio tipo de objeto, 
+            // el backend responde con JSON string, y el frontend lo convierte a objeto JavaScript
             const response = await fetch('/api/v1/suppliers/', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
+                // Convierte el objeto JavaScript a Json para enviarlo al servidor
                 body: JSON.stringify({
                     name,
                     email,
                     address
                 })
             });
-            // Respuesta de llamar a la API 
+            // Respuesta de llamar a la API, que convierte en un objeto JavaScript
             const data = await response.json().catch(() => null);
 
             if (response.ok) {
@@ -58,10 +61,12 @@ export function NewSupplier({ setSupplier, setNewSupplier }) {
 
     return (
         <div>
+            {/* Envía los datos del formulario al backend para crear un nuevo proveedor */}
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     placeholder="Nombre del proveedor"
+                    // Input que viene del estado de React
                     value={name}
                     onChange={(event) => setNewName(event.target.value)}
                 />

@@ -1,3 +1,5 @@
+// Se comunica con la base de datos
+
 import db from "../../config/db.js";
 
 export const getAll = async () => {

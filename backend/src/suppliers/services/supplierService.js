@@ -1,3 +1,5 @@
+// Lógica del negocio
+
 import * as dao from "../dao/supplierDao.js";
 
 export const getSuppliers = async () =>{

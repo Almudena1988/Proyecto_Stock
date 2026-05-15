@@ -1,3 +1,4 @@
+// Se define con Yup la validación de los datos de Pedido
 import * as yup from "yup";
 
 export const orderSchema = yup.object().shape({    

@@ -1,3 +1,5 @@
+// Lógica del negocio
+
 import * as dao from "../dao/orderDao.js";
 
 export const getAllOrd = async () => {

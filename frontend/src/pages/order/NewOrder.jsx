@@ -26,13 +26,15 @@ export function NewOrder() {
             .then(res => res.json())
             .then(data => setOrder(data))
             .catch(err => console.error("Error: ", err));
-    }, []); // Se renderiza solo cuando recarga la página
+    }, []); // Array vacío [] que hace que el efecto se ejecute solo una vez al montar el componente
 
     // Función para generar el pedido
     const handleGeneratedOrder = async () => {
 
         const generated = order
+        // Solo se incluyen productos con cantidad mayor que 0
             .filter(o => o.quantity > 0)
+            // Se crea un nuevo objeto solo con los datos necesarios
             .map(o => ({
                 name: o.name,
                 id: o.id,               
@@ -40,8 +42,7 @@ export function NewOrder() {
             }));
 
         setNewOrder(generated) // Se guarda el pedido 
-        setGenerated(true); // Una vez se genera el pedido se muestra el botón de Imprimir pedido
-        console.log("Pdf Data:", newOrders);
+        setGenerated(true); // Una vez se genera el pedido se muestra el botón de Imprimir pedido       
     
 
     // Función para guardar el pedido
@@ -163,6 +164,7 @@ export function NewOrder() {
                 {generated && newOrders.length > 0 && (
                     
                     <PDFDownloadLink
+                    // Fuerza el re render del pdf cuando cambia el contenido del pedido
                         key={JSON.stringify(newOrders)}
                         document={<ConvertirPDF data={newOrders} />}
                         fileName="pedido.pdf">

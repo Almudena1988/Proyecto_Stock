@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Toaster, sileo } from "sileo";
 import Button from '@mui/material/Button';
 
-// El componente de React recibe los props desde fuera
+// El componente de React recibe los props desde el padre
 export function ModificarProducto({
     id,
     name,
