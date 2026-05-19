@@ -10,9 +10,10 @@ export function ModificarProducto({
     stock_current,
     stock_minimum,
     supplier_id,
-    setProductEdit
+    setProductEdit,
+    setProducts
 }) {
-
+    const [new_id, setNewId] = useState(id);
     const [newname, setName] = useState(name);
     const [new_description, setDescription] = useState(description);
     const [new_stock_current, setStockCurrent] = useState(stock_current);
@@ -27,6 +28,7 @@ export function ModificarProducto({
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
+                    id: new_id,
                     name: newname,
                     description: new_description,
                     stock_current: new_stock_current,
@@ -38,8 +40,26 @@ export function ModificarProducto({
             const data = await response.json().catch(() => null);
 
             if (response.ok) {
+                setProducts(prev =>
+                    prev.map(p =>
+                        p.id === id
+                            ? {
+                                ...p,
+                                id: new_id,
+                                name: new_stock_current,
+                                description: new_description,
+                                stock_current: new_stock_current,
+                                stock_minimum: new_stock_minimum,
+                                supplier_id: new_supplier_id,
+                            }
+                            : p
+                    )
+                );
+
                 console.log("Producto actualizado");
+
                 sileo.success({ title: "Producto actualizado" })
+
                 setProductEdit(null);
 
             } else {
@@ -59,6 +79,7 @@ export function ModificarProducto({
 
     return (
         <div>
+            <input value={new_id} onChange={(e) => setNewId(e.target.value)}></input>
             <input value={newname} onChange={(e) => setName(e.target.value)} />
             <input value={new_description} onChange={(e) => setDescription(e.target.value)} />
             <input value={new_stock_current} onChange={(e) => setStockCurrent(e.target.value)} />

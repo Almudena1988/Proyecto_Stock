@@ -270,6 +270,7 @@ export function Productos() {
                 <ModificarProducto
                     {...productEdit}
                     setProductEdit={setProductEdit}
+                    setProducts={setProducts}
                 />
             )}
 
