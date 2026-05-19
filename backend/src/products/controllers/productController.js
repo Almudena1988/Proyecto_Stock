@@ -9,6 +9,9 @@ export const all = async (req, res) => {
         const data = await service.getAll();
         res.json(data);
     } catch (error) {
+        if (error.message === "NOT_FOUND") {
+            return res.status(404).json({ error: "No encontrado" });
+        }
         res.status(500).json({ error: "Error al obtener los datos de los productos" });
     }
 };
@@ -43,12 +46,16 @@ export const rem = async (req, res) => {
         await service.remove(req.params.id);
         res.json({ message: "Producto eliminado" })
     } catch (error) {
+        if (error.message === "NOT_FOUND") {
+            return res.status(404).json({ error: "No encontrado" });
+        }
         res.status(500).json({ error: "Error al eliminar" })
     }
 };
 
 export const update = async (req, res) => {
     try {
+        // abortEarly: valida todo y devuelve todos los errores
         const validatedData = await productSchema.validate(req.body, { abortEarly: false });
         await service.update(req.params.id, validatedData);
         res.json({ message: "Actualizado" });
