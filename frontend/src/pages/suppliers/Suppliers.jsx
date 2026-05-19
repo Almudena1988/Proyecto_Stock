@@ -25,7 +25,7 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
     El estado se sincroniza con el backend*/}
 
 
-export function Proveedores() { 
+export function Proveedores() {
     // useState: Para manejar estado (datos que cambian). Se empieza con un array vacío
     // proveedores: estado
     // setProveedores: función para actualizar el estado
@@ -77,32 +77,28 @@ export function Proveedores() {
 
             <h2>Proveedores</h2>
 
-            <div style={{ marginBottom: "20px" }}>
-
-                <Button
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                    onClick={() => setSortAsc(!sortAsc)}
-                    startIcon={
-                        sortAsc
-                            ? <ArrowUpwardIcon />
-                            : <ArrowDownwardIcon />
-                    }
-                >
-                    Ordenar proveedores
-                    
-                </Button>
-
-            </div>
 
             <table className="main-table">
 
                 <thead>
 
                     <tr >
-                        <th className="table-head-data">Nombre</th>
-                        <th className="table-head-data">Id proveedor</th>
+                        <th className="table-head-data">Nombre </th>
+
+                        <th className="table-head-data">Id proveedor <Button
+
+                            variant="text"
+                            color="#2b8340"
+                            size="small"
+                            onClick={() => setSortAsc(!sortAsc)}
+                            startIcon={
+                                sortAsc
+                                    ? <ArrowUpwardIcon />
+                                    : <ArrowDownwardIcon />
+                            }
+                        >
+
+                        </Button></th>
                         <th className="table-head-data">Email</th>
                         <th className="table-head-data">Dirección</th>
                         <th className="table-head-data">Fecha de creación</th>
@@ -122,10 +118,10 @@ export function Proveedores() {
                                     : b.id - a.id
                             )
 
-                            .map((p) => (                                
+                            .map((p) => (
 
                                 <tr className="tr-data" key={p.id}>
-                                    
+
                                     <td className="table-data">{p.name}</td>
                                     <td className="table-data">{p.id}</td>
                                     <td className="table-data">{p.email}</td>

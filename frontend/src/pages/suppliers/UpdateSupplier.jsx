@@ -57,8 +57,7 @@ export function UpdateSupplier({
 
                 sileo.success({title: "Datos del proveedor actualizados"});
 
-                setSupplierEdit(null);              
-               
+                setSupplierEdit(null);               
                
             } else {
                 console.log("Status: ", response.status)
