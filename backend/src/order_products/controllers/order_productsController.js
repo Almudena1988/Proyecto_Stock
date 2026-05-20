@@ -1,5 +1,5 @@
-import { productSchema } from "../../products/controllers/productSchema";
-import * as service from "../services/order_productService.js"
+import { order_product_schema } from "./order_productsSchema.js";
+import * as service from "../services/order_productService.js";
 
 export const getAll = async (req, res) => {
     try{
@@ -26,7 +26,7 @@ export const byId = async (req, res) => {
 
 export const createNew = async (req, res) => {
     try{
-        const validatedData = await productSchema.validate(req.body, { abortEarly: false });
+        const validatedData = await order_product_schema.validate(req.body, { abortEarly: false });
         const id = await service.create(validatedData);
         res.status(201).json({message: "Creado", id });
     }catch(error){
@@ -49,7 +49,7 @@ export const remove = async (req, res) => {
 
 export const update = async (req, res) => {
     try{
-        const validatedData = await productSchema.validate(req.body,{ abortEarly: false });
+        const validatedData = await order_product_schema.validate(req.body,{ abortEarly: false });
         await service.update(req.params.id, validatedData);
         res.json({ message: "Actualizado"});
 
