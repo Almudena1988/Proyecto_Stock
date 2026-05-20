@@ -49,21 +49,7 @@ export function NavBar({ darkMode, setDarkMode }) {
                         Productos
 
                     </NavLink>
-
-                    <NavLink
-                        className='link'
-                        to="/pedido"
-                        style={({ isActive }) => ({
-                            fontWeight: isActive ? "bold" : undefined,
-                            fontSize: isActive ? "16px" : undefined,
-                            color: isActive ? "black" : undefined,
-                            backgroundColor: isActive ? "#f2eaea" : undefined,
-                            borderRadius: isActive ? "8px" : undefined
-                        })}>
-
-                        Pedidos
-
-                    </NavLink>
+                    
 
                     <NavLink
                         className='link'
@@ -77,6 +63,20 @@ export function NavBar({ darkMode, setDarkMode }) {
                         })}>
 
                         Nuevo pedido
+
+                    </NavLink>
+                    <NavLink
+                        className='link'
+                        to="/order_products"
+                        style={({ isActive }) => ({
+                            fontWeight: isActive ? "bold" : undefined,
+                            fontSize: isActive ? "16px" : undefined,
+                            color: isActive ? "black" : undefined,
+                            backgroundColor: isActive ? "#f2eaea" : undefined,
+                            borderRadius: isActive ? "8px" : undefined
+                        })}>
+
+                        Historial de pedidos
 
                     </NavLink>
                 </div>

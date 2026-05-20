@@ -5,6 +5,8 @@ import express from "express";
 import productRoutes from "../src/products/routes/productRoutes.js";
 import supplierRoutes from "../src/suppliers/routes/supplierRoutes.js";
 import ordersRoutes from "../src/orders/routes/orderRoutes.js";
+import order_productsRoutes from "../src/order_products/routes/order_productsRoutes.js";
+
 
 // Se crea una aplicación usando Express
 const app = express();
@@ -17,6 +19,7 @@ app.use(express.json());
 app.use(productRoutes);
 app.use(supplierRoutes);
 app.use(ordersRoutes);
+app.use(order_productsRoutes);
 
 // Se indica que inice el servidor en el puerto 4000
 app.listen(4000);

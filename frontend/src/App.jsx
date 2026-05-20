@@ -14,6 +14,7 @@ import { NewOrder } from './pages/order/NewOrder';
 import { CrearProducto } from './pages/products/NewProduct';
 import { NavBar } from './pages/NavBar';
 import { useLocation } from 'react-router-dom';
+import { OrderProducts } from './pages/order_products/OrderProducts';
 
 // useLocation devuelve un objeto tipo location. Dentro de ese objeto hay información sobre la URL
 // que el usuario ha pedido. Esa información se guarda en pathname
@@ -38,6 +39,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Productos darkMode={darkMode} setDarkMode={setDarkMode} />} />
         <Route path="/proveedores" element={<Proveedores />} />
+        <Route path="/order_products" element={<OrderProducts />} />
         <Route path="/productos" element={<Productos />} />
         <Route path="/pedido" element={<Pedido />} />
         <Route path="/new" element={<NewOrder />} />
