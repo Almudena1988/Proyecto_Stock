@@ -31,8 +31,8 @@ export async function up(knex) { // Migración que se ejecuta con knex migrate:l
 
     await knex.schema.createTable('order_products', table => {
         table.increments('id').primary();
-        table.smallint('order_id').unsigned().notNullable().references('id').inTable('orders');
-        table.smallint('product_id').unsigned().notNullable().references('id').inTable('products');
+        table.integer('order_id').unsigned().notNullable().references('id').inTable('orders');
+        table.integer('product_id').unsigned().notNullable().references('id').inTable('products');
         table.smallint('quantity');
     });
 
